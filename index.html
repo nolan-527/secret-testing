@@ -85,7 +85,8 @@
         async function loadScenario() {
             try {
                 // FETCHING THE JSON ARRAY
-                const response = await fetch('scenarios_config.json');
+                // We add a cache-busting query string to the fetch
+                const response = await fetch('scenarios_config.json?v=' + new Date().getTime());
                 
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
@@ -197,6 +198,7 @@
             }
 
             // Set title: "Scenario Title: Current Passage ID"
+            // This replace() is fine. It just makes the title look nice.
             titleEl.textContent = `${scenarioData.scenarioTitle}: ${currentScene.id.replace(/-/g, ' ')}`;
             
             // --- THIS IS THE MODIFIED CODE ---
