@@ -200,8 +200,8 @@
             titleEl.textContent = `${scenarioData.scenarioTitle}: ${currentScene.id.replace(/-/g, ' ')}`;
             
             // --- THIS IS THE MODIFIED CODE ---
-            // It fixes newline characters (\n) that get broken by some JSON converters
-            const processedText = currentScene.text.replace(/\\n/g, '\n');
+            // It fixes newline characters (\n) by turning them into HTML line breaks (<br>)
+            const processedText = currentScene.text.replace(/\\n/g, '<br>');
             centeredPassageEl.innerHTML = processedText;
             // --- END OF MODIFIED CODE ---
 
@@ -398,7 +398,7 @@
                 }
             } else {
                 // Losing feedback (focus on failure reasons)
-                let listHtml = mistakes.map(m => `<li><strong>Mistake:</strong> ${m}</li>`).join('');
+                let listHtml = mistakes.map(m => `<li><strong>MistDake:</strong> ${m}</li>`).join('');
                 if (mistakes.length === 0) {
                     // The player probably hit a fatal loss passage with no associated score penalty
                     feedbackCardEl.innerHTML = `<div class="text-center"><p class="text-red-400 font-bold">CRITICAL FAILURE.</p><p class="mt-2">Your final decision led to a catastrophic outcome, even though you made few other mistakes.</p></div>`;
