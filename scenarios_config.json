@@ -390,12 +390,12 @@
       },
       {
         "id": "End-Win",
-        "text": "SUCCESS: You have successfully navigated the incident response process. Your swift and targeted actions saved the company from a major breach. You minimized disruption and secured forensic data for future defenses.<pre>\\n__  __ _       _       _       \\n\\\\ \\/ /(_) __ _| | __ _| |_ ___ \\n \\\\  / | |/ _` | |/ _` | __/ _ \\\\n  /  \\\\ | | (_| | | (_| | ||  __\\\\n /_/\\\\_\\\\| |\\__,_|_|\\__,_|\\__\\___|\\n       |_|\\n</pre>",
+        "text": "SUCCESS: You have successfully navigated the incident response process. Your swift and targeted actions saved the company from a major breach. You minimized disruption and secured forensic data for future defenses.<pre><br>__  __ _       _       _       <br>\\\\ \\/ /(_) __ _| | __ _| |_ ___ <br> \\\\  / | |/ _` | |/ _` | __/ _ \\<br>  /  \\\\ | | (_| | | (_| | ||  __\\<br> /_/\\\\_\\\\| |\\__,_|_|\\__,_|\\__\\___|<br>       |_|<br></pre>",
         "choices": []
       },
       {
         "id": "End-Loss",
-        "text": "FAILURE: Your misstep led to a critical failure or a full-scale breach. Sensitive data has been compromised or significant loss occurred. The cleanup will be costly, and the company's reputation is at risk.<pre>\\n _       _    _   _   _ \\n| |     | |  | | | | | |\\n| |     | |  | | | | | |\\n| |     | |  | | | | | |\\n| |____ | |__| | | |_| |\\n|______| \\\\____/   \\\\___/ \\n</pre>",
+        "text": "FAILURE: Your misstep led to a critical failure or a full-scale breach. Sensitive data has been compromised or significant loss occurred. The cleanup will be costly, and the company's reputation is at risk.<pre><br> _       _    _   _   _ <br>| |     | |  | | | | | |<br>| |     | |  | | | | | |<br>| |     | |  | | | | | |<br>| |____ | |__| | | |_| |<br>|______| \\\\____/   \\\\___/ <br></pre>",
         "choices": []
       }
     ]
