@@ -1,0 +1,348 @@
+[
+  {
+    "scenarioId": "CF357E1B-BFD8-429A-8228-786CC8C7FEE7",
+    "scenarioTitle": "The Overdraft Emporium",
+    "startPassageId": "Introduction",
+    "passages": [
+      {
+        "id": "Analyze proxy traffic for clicks.",
+        "text": "You decide to analyze the proxy traffic for any clicks. At 11:00 AM, your analysis revealed that several employees clicked the phishing link, and three entered credentials — including one with IT admin privileges. Leadership requests an immediate update:\n\n“How many accounts are compromised, and what are we doing about it?”\n\nWhat is your next step?",
+        "choices": [
+          {
+            "text": "Reset passwords of compromised accounts",
+            "next": "Reset passwords of compromised accounts"
+          },
+          {
+            "text": "Monitor the accounts quietly for anomalies",
+            "next": "Monitor the accounts quietly for anomalies"
+          },
+          {
+            "text": "Take no action since the emails are already blocked",
+            "next": "Take no action since the emails are already blocked"
+          }
+        ]
+      },
+      {
+        "id": "Block all email traffic",
+        "text": "You accidentally cut off all company wide communication, and was forced to rely on manual communication for the rest of the incident, slowing response time, and giving the attacker time to infiltrate your system. Along with this, you were forced to do much of the recovery yourself as your team are mainly remote workers. Your action, while applicable in some instances, was not suited for the severity of this incident. As a result, you are required to undergo further training for incident response.\n<pre>\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⡀⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠈⠄⠄⠄⠁⠄⠁⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⣀⣀⣤⣤⣴⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣦⣤⣤⣄⣀⡀⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⣴⣿⣿⡿⣿⢿⣟⣿⣻⣟⡿⣟⣿⣟⡿⣟⣿⣻⣟⣿⣻⢿⣻⡿⣿⢿⣷⣆⠄⠄⠄\\n⠄⠄⠄⢘⣿⢯⣷⡿⡿⡿⢿⢿⣷⣯⡿⣽⣞⣷⣻⢯⣷⣻⣾⡿⡿⢿⢿⢿⢯⣟⣞⡮⡀⠄⠄\\n⠄⠄⠄⢸⢞⠟⠃⣉⢉⠉⠉⠓⠫⢿⣿⣷⢷⣻⣞⣿⣾⡟⠽⠚⠊⠉⠉⠉⠙⠻⣞⢵⠂⠄⠄\\n⠄⠄⠄⢜⢯⣺⢿⣻⣿⣿⣷⣔⡄⠄⠈⠛⣿⣿⡾⠋⠁⠄⠄⣄⣶⣾⣿⡿⣿⡳⡌⡗⡅⠄⠄\\n⠄⠄⠄⢽⢱⢳⢹⡪⡞⠮⠯⢯⡻⡬⡐⢨⢿⣿⣿⢀⠐⡥⣻⡻⠯⡳⢳⢹⢜⢜⢜⢎⠆⠄⠄\\n⠄⠄⠠⣻⢌⠘⠌⡂⠈⠁⠉⠁⠘⠑⢧⣕⣿⣿⣿⢤⡪⠚⠂⠈⠁⠁⠁⠂⡑⠡⡈⢮⠅⠄⠄\\n⠄⠄⠠⣳⣿⣿⣽⣭⣶⣶⣶⣶⣶⣺⣟⣾⣻⣿⣯⢯⢿⣳⣶⣶⣶⣖⣶⣮⣭⣷⣽⣗⠍⠄⠄\\n⠄⠄⢀⢻⡿⡿⣟⣿⣻⣽⣟⣿⢯⣟⣞⡷⣿⣿⣯⢿⢽⢯⣿⣻⣟⣿⣻⣟⣿⣻⢿⣿⢀⠄⠄\\n⠄⠄⠄⡑⡏⠯⡯⡳⡯⣗⢯⢟⡽⣗⣯⣟⣿⣿⣾⣫⢿⣽⠾⡽⣺⢳⡫⡞⡗⡝⢕⠕⠄⠄⠄\\n⠄⠄⠄⢂⡎⠅⡃⢇⠇⠇⣃⣧⡺⡻⡳⡫⣿⡿⣟⠞⠽⠯⢧⣅⣃⠣⠱⡑⡑⠨⢐⢌⠂⠄⠄\\n⠄⠄⠄⠐⠼⣦⢀⠄⣶⣿⢿⣿⣧⣄⡌⠂⠢⠩⠂⠑⣁⣅⣾⢿⣟⣷⠦⠄⠄⡤⡇⡪⠄⠄⠄\\n⠄⠄⠄⠄⠨⢻⣧⡅⡈⠛⠿⠿⠿⠛⠁⠄⢀⡀⠄⠄⠘⠻⠿⠿⠯⠓⠁⢠⣱⡿⢑⠄⠄⠄⠄\\n⠄⠄⠄⠄⠈⢌⢿⣷⡐⠤⣀⣀⣂⣀⢀⢀⡓⠝⡂⡀⢀⢀⢀⣀⣀⠤⢊⣼⡟⡡⡁⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠈⢢⠚⣿⣄⠈⠉⠛⠛⠟⠿⠿⠟⠿⠻⠻⠛⠛⠉⠄⣠⠾⢑⠰⠈⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠑⢌⠿⣦⡡⣱⣸⣸⣆⠄⠄⠄⣰⣕⢔⢔⠡⣼⠞⡡⠁⠁⠄⠄⠄⠄⠄⠄\\n\'⠄⠄⠄⠄⠄⠄⠄⠄⠄⠑⢝⢷⣕⡷⣿⡿⠄⠄⠠⣿⣯⣯⡳⡽⡋⠌⠄⠄⠄⠄⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠙⢮⣿⣽⣯⠄⠄⢨⣿⣿⡷⡫⠃⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠘⠙⠝⠂⠄⢘⠋⠃⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄(...truncated...)</pre>",
+        "choices": [
+          {
+            "text": "End-loss",
+            "next": "End-loss"
+          }
+        ]
+      },
+      {
+        "id": "Block sender IP",
+        "text": "You block the sender IP, successfully preventing future attacks from this same IP. However, employee credentials are still at risk from suffering similar attacks by different actors.\n\nHow will you prevent future attacks?",
+        "choices": [
+          {
+            "text": "Enforce MFA on employee accounts where available",
+            "next": "Enforce MFA on employee accounts where available"
+          },
+          {
+            "text": "Require the use of a password manager",
+            "next": "Require the use of a password manager"
+          },
+          {
+            "text": "Update the password complexity requirements",
+            "next": "Update the password complexity requirements"
+          }
+        ]
+      },
+      {
+        "id": "Block sender email address",
+        "text": "You're under the impression that the attack has been mitigated by blocking the sender email address. However, four weeks later, you discover a similar attack has been brought against your system. You come to the conclusion that your system has been breached, causing leakage of not only employee data, but sensitive high-value client financial information. This caused some of these partners to seek business elsewhere, resulting in company loss. You resolve the issue and block the sender IP, preventing any future attacks. The company is safe now, however, with a smaller profit margin.\n<pre>\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⡀⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠈⠄⠄⠄⠁⠄⠁⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⣀⣀⣤⣤⣴⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣦⣤⣤⣄⣀⡀⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⣴⣿⣿⡿⣿⢿⣟⣿⣻⣟⡿⣟⣿⣟⡿⣟⣿⣻⣟⣿⣻⢿⣻⡿⣿⢿⣷⣆⠄⠄⠄\\n⠄⠄⠄⢘⣿⢯⣷⡿⡿⡿⢿⢿⣷⣯⡿⣽⣞⣷⣻⢯⣷⣻⣾⡿⡿⢿⢿⢿⢯⣟⣞⡮⡀⠄⠄\\n⠄⠄⠄⢸⢞⠟⠃⣉⢉⠉⠉⠓⠫⢿⣿⣷⢷⣻⣞⣿⣾⡟⠽⠚⠊⠉⠉⠉⠙⠻⣞⢵⠂⠄⠄\\n⠄⠄⠄⢜⢯⣺⢿⣻⣿⣿⣷⣔⡄⠄⠈⠛⣿⣿⡾⠋⠁⠄⠄⣄⣶⣾⣿⡿⣿⡳⡌⡗⡅⠄⠄\\n⠄⠄⠄⢽⢱⢳⢹⡪⡞⠮⠯⢯⡻⡬⡐⢨⢿⣿⣿⢀⠐⡥⣻⡻⠯⡳⢳⢹⢜⢜⢜⢎⠆⠄⠄\\n⠄⠄⠠⣻⢌⠘⠌⡂⠈⠁⠉⠁⠘⠑⢧⣕⣿⣿⣿⢤⡪⠚⠂⠈⠁⠁⠁⠂⡑⠡⡈⢮⠅⠄⠄\\n⠄⠄⠠⣳⣿⣿⣽⣭⣶⣶⣶⣶⣶⣺⣟⣾⣻⣿⣯⢯⢿⣳⣶⣶⣶⣖⣶⣮⣭⣷⣽⣗⠍⠄⠄\\n⠄⠄⢀⢻⡿⡿⣟⣿⣻⣽⣟⣿⢯⣟⣞⡷⣿⣿⣯⢿⢽⢯⣿⣻⣟⣿⣻⣟⣿⣻⢿⣿⢀⠄⠄\\n⠄⠄⠄⡑⡏⠯⡯⡳⡯⣗⢯⢟⡽⣗⣯⣟⣿⣿⣾⣫⢿⣽⠾⡽⣺⢳⡫⡞⡗⡝⢕⠕⠄⠄⠄\\n⠄⠄⠄⢂⡎⠅⡃⢇⠇⠇⣃⣧⡺⡻⡳⡫⣿⡿⣟⠞⠽⠯⢧⣅⣃⠣⠱⡑⡑⠨⢐⢌⠂⠄⠄\\n⠄⠄⠄⠐⠼⣦⢀⠄⣶⣿⢿⣿⣧⣄⡌⠂⠢⠩⠂⠑⣁⣅⣾⢿⣟⣷⠦⠄⠄⡤⡇⡪⠄⠄⠄\\n⠄⠄⠄⠄⠨⢻⣧⡅⡈⠛⠿⠿⠿⠛⠁⠄⢀⡀⠄⠄⠘⠻⠿⠿⠯⠓⠁⢠⣱⡿⢑⠄⠄⠄⠄\\n⠄⠄⠄⠄⠈⢌⢿⣷⡐⠤⣀⣀⣂⣀⢀⢀⡓⠝⡂⡀⢀⢀⢀⣀⣀⠤⢊⣼⡟⡡⡁⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠈⢢⠚⣿⣄⠈⠉⠛⠛⠟⠿⠿⠟⠿⠻⠻⠛⠛⠉⠄⣠⠾⢑⠰⠈⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠑⢌⠿⣦⡡⣱⣸⣸⣆⠄⠄⠄⣰⣕⢔⢔⠡⣼⠞⡡⠁⠁⠄⠄⠄⠄⠄⠄\\n\'⠄⠄⠄⠄⠄⠄⠄⠄⠄⠑⢝⢷⣕⡷⣿⡿⠄⠄⠠⣿⣯⣯⡳⡽⡋⠌⠄⠄⠄⠄⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠙⢮⣿⣽⣯⠄⠄⢨⣿⣿⡷⡫⠃⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠘⠙⠝⠂⠄⢘⠋⠃⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄(...truncated...)</pre>",
+        "choices": [
+          {
+            "text": "End-win",
+            "next": "End-win"
+          }
+        ]
+      },
+      {
+        "id": "Check with HR about recent hires",
+        "text": "You decide to contact HR and ask about any recent hires that match the users credentials. They notify you that there is no current employee under the name you provided. You investigate this user further and find that they have signed on incredibly recently.",
+        "choices": [
+          {
+            "text": "Review SIEM and SSO logs.",
+            "next": "Review SIEM and SSO logs."
+          }
+        ]
+      },
+      {
+        "id": "Close the incident as a false positive",
+        "text": "You decide to close the incident and flag it as a false positive in the system. Later that day, however, multiple employees report being locked out after “resetting” their passwords using the phishing link. You now realize that the link was a positive alert which you have now reported to the CISO \n\nWhat should you do?",
+        "choices": [
+          {
+            "text": "Review SIEM and SSO logs.",
+            "next": "Review SIEM and SSO logs."
+          },
+          {
+            "text": "reset passwords to see if it was a system error ",
+            "next": "reset passwords to see if it was a system error "
+          },
+          {
+            "text": "Analyze proxy traffic for clicks.",
+            "next": "Analyze proxy traffic for clicks."
+          }
+        ]
+      },
+      {
+        "id": "Continue",
+        "text": "At 9:36 AM, you receive an alert that a mass phishing campaign is targeting employees. The emails appear to come from the CFO, urging users to “change their passwords immediately” using a link provided.",
+        "choices": [
+          {
+            "text": "Run AV scans on all network devices",
+            "next": "Run AV scans on all network devices"
+          },
+          {
+            "text": "Quarantine the emails for investigation",
+            "next": "Quarantine the emails for investigation"
+          },
+          {
+            "text": "Personally investigate the link (Sand box)",
+            "next": "Personally investigate the link (Sand box)"
+          }
+        ]
+      },
+      {
+        "id": "Continue about your day since the passwords have been fully reset",
+        "text": "You decided to continue about your day since passwords have been fully reset for all the affected users. However, later that week, it is discovered that a threat actor, has not only breached the system, but has exfiltrated company and customer sensitive data. In order to find out what went wrong, your company decided to perform an audit, and security log analysis to understand what was done in response or if anything had been detected. It was found that the user you decided to ignore, was actually a newly created account by the threat actor and that was the reason for the breach. Due to your lack of proper procedures, the company was breached resulting in a class action lawsuit against the company. You have been terminated.\n\n<pre>\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⢡⡾⠋⠉⠀⠄⢈⣿⠸⠿⠿⢿⣿⡏⢸⣿⣷⡌⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⣯⣀⠈⣀⢠⣴⣿⣿⣿⣿⣿⣿⣷⣶⣾⠙⠛⠇⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠀⣿⣿⣧⣶⣾⢻⣿⣿⣿⣿⣿⣿⢻⣿⣿⡇⠀⠁⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⡀⣿⣿⣿⣿⣿⡈⣿⣿⣿⣿⣿⡿⢸⣿⣿⣷⣆⡀⣅⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠇⢸⣿⣿⣿⣿⡇⠋⡌⣿⡟⡄⠃⣿⣿⣿⣿⣿⠃⡇⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⣤⣛⡿⠿⣿⢿⣀⠃⠻⠇⠃⣠⠿⠿⢿⣛⣩⣄⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢰⠸⢿⣿⣷⣶⣦⣬⣓⣒⣒⣫⣥⣶⣾⣿⠿⠿⠟⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠔⠀⠒⠂⠈⠙⠛⠿⣿⣿⣿⠿⠛⠋⠉⠀⠈⠉⠈⠂⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⣄⡇⠀⠀⢅⢂⡄⠀⠀⢛⠃⠀⠀⠄⢁⠄⠀⠀⣧⡆⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢻⡇⣦⣀⣀⣀⠀⠀⣠⠀⢰⣀⠀⠀⢀⣀⣤⡆⡟⠁⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠠⣷⣬⣭⣭⣶⣶⣿⠋⠀⠀⠻⣿⠿⢶⣶⣶⣾⡷⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠉⠉⡉⠀⠀⢈⣧⡀⠀⣀⣠⣿⠀⠀⠀⠈⠉⡄⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆⠀⠀⠀⠀⡄⢸⣏⣹⣿⣿⣉⣿⠀⠀⠀⠀⠀⡇⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠉⢉⢈⡉⡁⡀⠉⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢀⠀⠂⠀⢠⡀⠂⠌⠠⠁⠐⢀⠴⠀⠠⠠⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\nKA(truncated...)</pre>",
+        "choices": [
+          {
+            "text": "End-loss",
+            "next": "End-loss"
+          }
+        ]
+      },
+      {
+        "id": "Delete the user",
+        "text": "You decided to delete the user. An hour later, you are pinged by your immediate managers and are notified that you deleted a legitmate user. You speak with them about the current password issue you were working on and explain that, that is why you deleted the user. After hearing your explanation they decide that you are not fit for the current role as you have taken the imporper steps and could have severely damaged the company.\n<pre>\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⡀⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠈⠄⠄⠄⠁⠄⠁⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⣀⣀⣤⣤⣴⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣦⣤⣤⣄⣀⡀⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⣴⣿⣿⡿⣿⢿⣟⣿⣻⣟⡿⣟⣿⣟⡿⣟⣿⣻⣟⣿⣻⢿⣻⡿⣿⢿⣷⣆⠄⠄⠄\\n⠄⠄⠄⢘⣿⢯⣷⡿⡿⡿⢿⢿⣷⣯⡿⣽⣞⣷⣻⢯⣷⣻⣾⡿⡿⢿⢿⢿⢯⣟⣞⡮⡀⠄⠄\\n⠄⠄⠄⢸⢞⠟⠃⣉⢉⠉⠉⠓⠫⢿⣿⣷⢷⣻⣞⣿⣾⡟⠽⠚⠊⠉⠉⠉⠙⠻⣞⢵⠂⠄⠄\\n⠄⠄⠄⢜⢯⣺⢿⣻⣿⣿⣷⣔⡄⠄⠈⠛⣿⣿⡾⠋⠁⠄⠄⣄⣶⣾⣿⡿⣿⡳⡌⡗⡅⠄⠄\\n⠄⠄⠄⢽⢱⢳⢹⡪⡞⠮⠯⢯⡻⡬⡐⢨⢿⣿⣿⢀⠐⡥⣻⡻⠯⡳⢳⢹⢜⢜⢜⢎⠆⠄⠄\\n⠄⠄⠠⣻⢌⠘⠌⡂⠈⠁⠉⠁⠘⠑⢧⣕⣿⣿⣿⢤⡪⠚⠂⠈⠁⠁⠁⠂⡑⠡⡈⢮⠅⠄⠄\\n⠄⠄⠠⣳⣿⣿⣽⣭⣶⣶⣶⣶⣶⣺⣟⣾⣻⣿⣯⢯⢿⣳⣶⣶⣶⣖⣶⣮⣭⣷⣽⣗⠍⠄⠄\\n⠄⠄⢀⢻⡿⡿⣟⣿⣻⣽⣟⣿⢯⣟⣞⡷⣿⣿⣯⢿⢽⢯⣿⣻⣟⣿⣻⣟⣿⣻⢿⣿⢀⠄⠄\\n⠄⠄⠄⡑⡏⠯⡯⡳⡯⣗⢯⢟⡽⣗⣯⣟⣿⣿⣾⣫⢿⣽⠾⡽⣺⢳⡫⡞⡗⡝⢕⠕⠄⠄⠄\\n\'⠄⠄⠄⢂⡎⠅⡃⢇⠇⠇⣃⣧⡺⡻⡳⡫⣿⡿⣟⠞⠽⠯⢧⣅⣃⠣⠱⡑⡑⠨⢐⢌⠂⠄⠄\\n⠄⠄⠄⠐⠼⣦⢀⠄⣶⣿⢿⣿⣧⣄⡌⠂⠢⠩⠂⠑⣁⣅⣾⢿⣟⣷⠦⠄⠄⡤⡇⡪⠄⠄⠄\\n⠄⠄⠄⠄⠨⢻⣧⡅⡈⠛⠿⠿⠿⠛⠁⠄⢀⡀⠄⠄⠘⠻F(truncated...)</pre>",
+        "choices": [
+          {
+            "text": "End-loss",
+            "next": "End-loss"
+          }
+        ]
+      },
+      {
+        "id": "Dismiss this as normal user activity (file downloads of customer data are typical for your company",
+        "text": "You decided to dismiss this as normal activity, as your company is known for its relaxed environment. However, later that week, your company is on the news as they have been breached. An internal investigation is done, and it is discovered that the user was, in fact, a threat actor who had breached the system and exfiltrated sensitive data. Due to your failure to follow proper procedure, and your lack of initiative, you have been terminated.\n<pre>\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⢡⡾⠋⠉⠀⠄⢈⣿⠸⠿⠿⢿⣿⡏⢸⣿⣷⡌⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⣯⣀⠈⣀⢠⣴⣿⣿⣿⣿⣿⣿⣷⣶⣾⠙⠛⠇⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠀⣿⣿⣧⣶⣾⢻⣿⣿⣿⣿⣿⣿⢻⣿⣿⡇⠀⠁⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⡀⣿⣿⣿⣿⣿⡈⣿⣿⣿⣿⣿⡿⢸⣿⣿⣷⣆⡀⣅⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠇⢸⣿⣿⣿⣿⡇⠋⡌⣿⡟⡄⠃⣿⣿⣿⣿⣿⠃⡇⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⣤⣛⡿⠿⣿⢿⣀⠃⠻⠇⠃⣠⠿⠿⢿⣛⣩⣄⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢰⠸⢿⣿⣷⣶⣦⣬⣓⣒⣒⣫⣥⣶⣾⣿⠿⠿⠟⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠔⠀⠒⠂⠈⠙⠛⠿⣿⣿⣿⠿⠛⠋⠉⠀⠈⠉⠈⠂⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⣄⡇⠀⠀⢅⢂⡄⠀⠀⢛⠃⠀⠀⠄⢁⠄⠀⠀⣧⡆⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢻⡇⣦⣀⣀⣀⠀⠀⣠⠀⢰⣀⠀⠀⢀⣀⣤⡆⡟⠁⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠠⣷⣬⣭⣭⣶⣶⣿⠋⠀⠀⠻⣿⠿⢶⣶⣶⣾⡷⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠉⠉⡉⠀⠀⢈⣧⡀⠀⣀⣠⣿⠀⠀⠀⠈⠉⡄⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆⠀⠀⠀⠀⡄⢸⣏⣹⣿⣿⣉⣿⠀⠀⠀⠀⠀⡇⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠉⢉⢈⡉⡁⡀⠉⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢀⠀⠂⠀⢠⡀⠂⠌⠠⠁⠐⢀⠴⠀⠠⠠⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\nKA(truncated...)</pre>",
+        "choices": [
+          {
+            "text": "End-loss",
+            "next": "End-loss"
+          }
+        ]
+      },
+      {
+        "id": "End-loss",
+        "text": "<pre>\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⡀⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠈⠄⠄⠄⠁⠄⠁⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⣀⣀⣤⣤⣴⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣦⣤⣤⣄⣀⡀⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⣴⣿⣿⡿⣿⢿⣟⣿⣻⣟⡿⣟⣿⣟⡿⣟⣿⣻⣟⣿⣻⢿⣻⡿⣿⢿⣷⣆⠄⠄⠄\\n⠄⠄⠄⢘⣿⢯⣷⡿⡿⡿⢿⢿⣷⣯⡿⣽⣞⣷⣻⢯⣷⣻⣾⡿⡿⢿⢿⢿⢯⣟⣞⡮⡀⠄⠄\\n⠄⠄⠄⢸⢞⠟⠃⣉⢉⠉⠉⠓⠫⢿⣿⣷⢷⣻⣞⣿⣾⡟⠽⠚⠊⠉⠉⠉⠙⠻⣞⢵⠂⠄⠄\\n⠄⠄⠄⢜⢯⣺⢿⣻⣿⣿⣷⣔⡄⠄⠈⠛⣿⣿⡾⠋⠁⠄⠄⣄⣶⣾⣿⡿⣿⡳⡌⡗⡅⠄⠄\\n⠄⠄⠄⢽⢱⢳⢹⡪⡞⠮⠯⢯⡻⡬⡐⢨⢿⣿⣿⢀⠐⡥⣻⡻⠯⡳⢳⢹⢜⢜⢜⢎⠆⠄⠄\\n⠄⠄⠠⣻⢌⠘⠌⡂⠈⠁⠉⠁⠘⠑⢧⣕⣿⣿⣿⢤⡪⠚⠂⠈⠁⠁⠁⠂⡑⠡⡈⢮⠅⠄⠄\\n⠄⠄⠠⣳⣿⣿⣽⣭⣶⣶⣶⣶⣶⣺⣟⣾⣻⣿⣯⢯⢿⣳⣶⣶⣶⣖⣶⣮⣭⣷⣽⣗⠍⠄⠄\\n⠄⠄⢀⢻⡿⡿⣟⣿⣻⣽⣟⣿⢯⣟⣞⡷⣿⣿⣯⢿⢽⢯⣿⣻⣟⣿⣻⣟⣿⣻⢿⣿⢀⠄⠄\\n⠄⠄⠄⡑⡏⠯⡯⡳⡯⣗⢯⢟⡽⣗⣯⣟⣿⣿⣾⣫⢿⣽⠾⡽⣺⢳⡫⡞⡗⡝⢕⠕⠄⠄⠄\\n⠄⠄⠄⢂⡎⠅⡃⢇⠇⠇⣃⣧⡺⡻⡳⡫⣿⡿⣟⠞⠽⠯⢧⣅⣃⠣⠱⡑⡑⠨⢐⢌⠂⠄⠄\\n⠄⠄⠄⠐⠼⣦⢀⠄⣶⣿⢿⣿⣧⣄⡌⠂⠢⠩⠂⠑⣁⣅⣾⢿⣟⣷⠦⠄⠄⡤⡇⡪⠄⠄⠄\\n⠄⠄⠄⠄⠨⢻⣧⡅⡈⠛⠿⠿⠿⠛⠁⠄⢀⡀⠄⠄⠘⠻⠿⠿⠯⠓⠁⢠⣱⡿⢑⠄⠄⠄⠄\\n⠄⠄⠄⠄⠈⢌⢿⣷⡐⠤⣀⣀⣂⣀⢀⢀⡓⠝⡂⡀⢀⢀⢀⣀⣀⠤⢊⣼⡟⡡⡁⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠈⢢⠚⣿⣄⠈⠉⠛⠛⠟⠿⠿⠟⠿⠻⠻⠛⠛⠉⠄⣠⠾⢑⠰⠈⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠑⢌⠿⣦⡡⣱⣸⣸⣆⠄⠄⠄⣰⣕⢔⢔⠡⣼⠞⡡⠁⠁⠄⠄⠄⠄⠄⠄\\n\'⠄⠄⠄⠄⠄⠄⠄⠄⠄⠑⢝⢷⣕⡷⣿⡿⠄⠄⠠⣿⣯⣯⡳⡽⡋⠌⠄⠄⠄⠄⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠙⢮⣿⣽⣯⠄⠄⢨⣿⣿⡷⡫⠃⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠘⠙⠝⠂⠄⢘⠋⠃⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄(...truncated...)</pre>",
+        "choices": []
+      },
+      {
+        "id": "End-win",
+        "text": "<pre>\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⡀⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠈⠄⠄⠄⠁⠄⠁⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⣀⣀⣤⣤⣴⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣦⣤⣤⣄⣀⡀⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⣴⣿⣿⡿⣿⢿⣟⣿⣻⣟⡿⣟⣿⣟⡿⣟⣿⣻⣟⣿⣻⢿⣻⡿⣿⢿⣷⣆⠄⠄⠄\\n⠄⠄⠄⢘⣿⢯⣷⡿⡿⡿⢿⢿⣷⣯⡿⣽⣞⣷⣻⢯⣷⣻⣾⡿⡿⢿⢿⢿⢯⣟⣞⡮⡀⠄⠄\\n⠄⠄⠄⢸⢞⠟⠃⣉⢉⠉⠉⠓⠫⢿⣿⣷⢷⣻⣞⣿⣾⡟⠽⠚⠊⠉⠉⠉⠙⠻⣞⢵⠂⠄⠄\\n⠄⠄⠄⢜⢯⣺⢿⣻⣿⣿⣷⣔⡄⠄⠈⠛⣿⣿⡾⠋⠁⠄⠄⣄⣶⣾⣿⡿⣿⡳⡌⡗⡅⠄⠄\\n⠄⠄⠄⢽⢱⢳⢹⡪⡞⠮⠯⢯⡻⡬⡐⢨⢿⣿⣿⢀⠐⡥⣻⡻⠯⡳⢳⢹⢜⢜⢜⢎⠆⠄⠄\\n⠄⠄⠠⣻⢌⠘⠌⡂⠈⠁⠉⠁⠘⠑⢧⣕⣿⣿⣿⢤⡪⠚⠂⠈⠁⠁⠁⠂⡑⠡⡈⢮⠅⠄⠄\\n⠄⠄⠠⣳⣿⣿⣽⣭⣶⣶⣶⣶⣶⣺⣟⣾⣻⣿⣯⢯⢿⣳⣶⣶⣶⣖⣶⣮⣭⣷⣽⣗⠍⠄⠄\\n⠄⠄⢀⢻⡿⡿⣟⣿⣻⣽⣟⣿⢯⣟⣞⡷⣿⣿⣯⢿⢽⢯⣿⣻⣟⣿⣻⣟⣿⣻⢿⣿⢀⠄⠄\\n\'⠄⠄⠄⡑⡏⠯⡯⡳⡯⣗⢯⢟⡽⣗⣯⣟⣿⣿⣾⣫⢿⣽⠾⡽⣺⢳⡫⡞⡗⡝⢕⠕⠄⠄⠄\\n⠄⠄⠄⢂⡎⠅⡃⢇⠇⠇⣃⣧⡺⡻⡳⡫⣿⡿⣟⠞⠽⠯⢧⣅⣃⠣⠱⡑⡑⠨⢐⢌⠂⠄⠄\\n⠄⠄⠄⠐⠼⣦⢀⠄⣶⣿⢿⣿⣧⣄⡌⠂⠢⠩⠂⠑⣁⣅⣾⢿⣟⣷⠦⠄⠄⡤⡇⡪⠄⠄⠄\\n⠄⠄⠄⠄⠨⢻⣧⡅⡈⠛⠿⠿⠿⠛⠁⠄⢀⡀⠄⠄⠘⠻⠿⠿⠯⠓⠁⢠⣱⡿⢑⠄⠄⠄⠄\\n⠄⠄⠄⠄⠈⢌⢿⣷⡐⠤⣀⣀⣂⣀⢀⢀⡓⠝⡂⡀⢀⢀⢀⣀⣀⠤⢊⣼⡟⡡⡁⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠈⢢⠚⣿⣄⠈⠉⠛⠛⠟⠿⠿⠟⠿⠻⠻⠛⠛⠉⠄⣠⠾⢑⠰⠈⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠑⢌⠿⣦⡡⣱⣸⣸⣆⠄⠄⠄⣰pre>\\n",
+        "choices": []
+      },
+      {
+        "id": "Enforce MFA on employee accounts where available",
+        "text": "By immediately implementing MFA company-wide, you have successfully rendered all previously stolen credentials useless and prevented a major breach. The incident is contained and mitigated. \n\nYour CISO, and the CEO of The Overdraft Emporium, were extremely impressed with your quick, forward thinking suggestions, has given you a promotion to Manager of the SOC team. Congratulations!\n<pre>\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⡀⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠈⠄⠄⠄⠁⠄⠁⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⣀⣀⣤⣤⣴⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣦⣤⣤⣄⣀⡀⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⣴⣿⣿⡿⣿⢿⣟⣿⣻⣟⡿⣟⣿⣟⡿⣟⣿⣻⣟⣿⣻⢿⣻⡿⣿⢿⣷⣆⠄⠄⠄\\n⠄⠄⠄⢘⣿⢯⣷⡿⡿⡿⢿⢿⣷⣯⡿⣽⣞⣷⣻⢯⣷⣻⣾⡿⡿⢿⢿⢿⢯⣟⣞⡮⡀⠄⠄\\n⠄⠄⠄⢸⢞⠟⠃⣉⢉⠉⠉⠓⠫⢿⣿⣷⢷⣻⣞⣿⣾⡟⠽⠚⠊⠉⠉⠉⠙⠻⣞⢵⠂⠄⠄\\n⠄⠄⠄⢜⢯⣺⢿⣻⣿⣿⣷⣔⡄⠄⠈⠛⣿⣿⡾⠋⠁⠄⠄⣄⣶⣾⣿⡿⣿⡳⡌⡗⡅⠄⠄\\n\'⠄⠄⠄⢽⢱⢳⢹⡪⡞⠮⠯⢯⡻⡬⡐⢨⢿⣿⣿⢀⠐⡥⣻⡻⠯⡳⢳⢹⢜⢜⢜⢎⠆⠄⠄\\n⠄⠄⠠⣻⢌⠘⠌⡂⠈⠁⠉⠁⠘⠑⢧⣕⣿⣿⣿⢤⡪⠚⠂⠈⠁⠁⠁⠂⡑⠡⡈⢮⠅⠄⠄\\n⠄⠄⠠⣳⣿⣿⣽⣭⣶⣶⣶⣶⣶⣺⣟⣾⣻⣿⣯⢯⢿⣳⣶⣶⣶⣖⣶⣮⣭⣷⣽⣗⠍⠄⠄\\nAvailable(truncated...)</pre>",
+        "choices": [
+          {
+            "text": "End-win",
+            "next": "End-win"
+          }
+        ]
+      },
+      {
+        "id": "Identify impacted accounts.",
+        "text": "You isolate the login times and see which accounts were affected. Now you need to determine the source and full scope.\n\n[[Investigate email sender]]",
+        "choices": [
+          {
+            "text": "Investigate email sender",
+            "next": "Investigate email sender"
+          }
+        ]
+      },
+      {
+        "id": "Introduction",
+        "text": "You are a SOC Analyst at The Overdraft Emporium. A mid-size regional financial institution known for its friendly service but relaxed approach to internal cybersecurity protocols. The company values efficiency and dislikes “unnecessary interruptions.” \n\n[[Continue]]",
+        "choices": [
+          {
+            "text": "Continue",
+            "next": "Continue"
+          }
+        ]
+      },
+      {
+        "id": "Investigate email contents",
+        "text": "You investigate the link contained in the emails in a sandbox environment. The page mimics your company’s password reset site, but the domain is slightly off, colors are wrong, and some links are broken — clear signs of phishing. \n\n[[Analyze proxy traffic for clicks.]]",
+        "choices": [
+          {
+            "text": "Analyze proxy traffic for clicks.",
+            "next": "Analyze proxy traffic for clicks."
+          }
+        ]
+      },
+      {
+        "id": "Investigate email sender",
+        "text": "You've traced the email back to a disposable foreign server. You now need to understand the payload. \n\n[[Investigate email contents]]",
+        "choices": [
+          {
+            "text": "Investigate email contents",
+            "next": "Investigate email contents"
+          }
+        ]
+      },
+      {
+        "id": "Monitor the accounts quietly for anomalies",
+        "text": "You choose to monitor logs instead of immediate action. By the afternoon, the attacker successfully logs in with a stolen IT credential and creates new user accounts with admin rights. With the new accounts, company and customer sensitive data is exfiltrated, leaving the company at a loss and in a class action lawsuit. Due to your lack of timely action and failure to follow procedures, You have been terminated.\n<pre>\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⡀⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠈⠄⠄⠄⠁⠄⠁⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⣀⣀⣤⣤⣴⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣦⣤⣤⣄⣀⡀⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⣴⣿⣿⡿⣿⢿⣟⣿⣻⣟⡿⣟⣿⣟⡿⣟⣿⣻⣟⣿⣻⢿⣻⡿⣿⢿⣷⣆⠄⠄⠄\\n⠄⠄⠄⢘⣿⢯⣷⡿⡿⡿⢿⢿⣷⣯⡿⣽⣞⣷⣻⢯⣷⣻⣾⡿⡿⢿⢿⢿⢯⣟⣞⡮⡀⠄⠄\\n⠄⠄⠄⢸⢞⠟⠃⣉⢉⠉⠉⠓⠫⢿⣿⣷⢷⣻⣞⣿⣾⡟⠽⠚⠊⠉⠉⠉⠙⠻⣞⢵⠂⠄⠄\\n⠄⠄⠄⢜⢯⣺⢿⣻⣿⣿⣷⣔⡄⠄⠈⠛⣿⣿⡾⠋⠁⠄⠄⣄⣶⣾⣿⡿⣿⡳⡌⡗⡅⠄⠄\\n⠄⠄⠄⢽⢱⢳⢹⡪⡞⠮⠯⢯⡻⡬⡐⢨⢿⣿⣿⢀⠐⡥⣻⡻⠯⡳⢳⢹⢜⢜⢜⢎⠆⠄⠄\\n⠄⠄⠠⣻⢌⠘⠌⡂⠈⠁⠉⠁⠘⠑⢧⣕⣿⣿⣿⢤⡪⠚⠂⠈⠁⠁⠁⠂⡑⠡⡈⢮⠅⠄⠄\\n⠄⠄⠠⣳⣿⣿⣽⣭⣶⣶⣶⣶⣶⣺⣟⣾⣻⣿⣯⢯⢿⣳⣶⣶⣶⣖⣶⣮⣭⣷⣽⣗⠍⠄⠄\\n⠄⠄⢀⢻⡿⡿⣟⣿⣻⣽⣟⣿⢯⣟⣞⡷⣿⣿⣯⢿⢽⢯⣿⣻⣟⣿⣻⣟⣿⣻⢿⣿⢀⠄⠄\\n⠄⠄⠄⡑⡏⠯⡯⡳⡯⣗⢯⢟⡽⣗⣯⣟⣿⣿⣾⣫⢿⣽⠾⡽⣺⢳⡫⡞⡗⡝⢕⠕⠄⠄⠄\\n⠄⠄⠄⢂⡎⠅⡃⢇⠇⠇⣃⣧⡺⡻⡳⡫⣿⡿⣟⠞⠽⠯⢧⣅⣃⠣⠱⡑⡑⠨⢐⢌⠂⠄⠄\\n⠄⠄⠄⠐⠼⣦⢀⠄⣶⣿⢿⣿⣧⣄⡌⠂⠢⠩⠂⠑⣁⣅⣾⢿⣟⣷⠦⠄⠄⡤⡇⡪⠄⠄⠄\\n⠄⠄⠄⠄⠨⢻⣧⡅⡈⠛⠿⠿⠿⠛⠁⠄⢀⡀⠄⠄⠘⠻⠿⠿⠯⠓⠁⢠⣱⡿⢑⠄⠄⠄⠄\\n⠄⠄⠄⠄⠈⢌⢿⣷⡐⠤⣀⣀⣂⣀⢀⢀⡓⠝⡂⡀⢀⢀⢀⣀⣀⠤⢊⣼⡟⡡⡁⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠈⢢⠚⣿⣄⠈⠉⠛⠛⠟⠿⠿⠟⠿⠻⠻⠛⠛⠉⠄⣠⠾⢑⠰⠈⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠑⢌⠿⣦⡡⣱⣸⣸⣆⠄⠄⠄⣰⣕⢔⢔⠡⣼⠞⡡⠁⠁⠄⠄⠄⠄⠄⠄\\n\'⠄⠄⠄⠄⠄⠄⠄⠄⠄⠑⢝⢷⣕⡷⣿⡿⠄⠄⠠⣿⣯⣯⡳⡽⡋⠌⠄⠄⠄⠄⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠙⢮⣿⣽⣯⠄⠄⢨⣿⣿⡷⡫⠃⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠘⠙⠝⠂⠄⢘⠋⠃⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄(...truncated...)</pre>",
+        "choices": [
+          {
+            "text": "End-loss",
+            "next": "End-loss"
+          }
+        ]
+      },
+      {
+        "id": "Personally investigate the link (Sand box)",
+        "text": "You open the link in a sandboxed environment.\n\nThe page mimics your company’s password reset site, but the domain is slightly off, colors are wrong, and some links are broken — clear signs of phishing.\n\nWhat is your next step?\n\n[[Quarantine the emails for investigation]] \n[[Monitor the accounts quietly for anomalies]]",
+        "choices": [
+          {
+            "text": "Quarantine the emails for investigation",
+            "next": "Quarantine the emails for investigation"
+          },
+          {
+            "text": "Monitor the accounts quietly for anomalies",
+            "next": "Monitor the accounts quietly for anomalies"
+          }
+        ]
+      },
+      {
+        "id": "Quarantine the emails for investigation",
+        "text": "You quickly quarantine all suspicious emails from employee inboxes and mark the incident as active. You prepare for deeper analysis. \n\n[[Review SIEM and SSO logs.]]\n[[Analyze proxy traffic for clicks.]]\n[[Identify impacted accounts.]]\n[[Investigate email contents]]",
+        "choices": [
+          {
+            "text": "Review SIEM and SSO logs.",
+            "next": "Review SIEM and SSO logs."
+          },
+          {
+            "text": "Analyze proxy traffic for clicks.",
+            "next": "Analyze proxy traffic for clicks."
+          },
+          {
+            "text": "Identify impacted accounts.",
+            "next": "Identify impacted accounts."
+          },
+          {
+            "text": "Investigate email contents",
+            "next": "Investigate email contents"
+          }
+        ]
+      },
+      {
+        "id": "Remove new user and block their IP",
+        "text": "You decided to remove the new user and block their IP. You then draft an email and send it to your CISO, explaining what had happened, what you had discovered, and what steps you had taken to remediate. \n\nYour CISO, and the CEO of The Overdraft Emporium, were extremely impressed with your quick, forward thinking suggestions, has given you a promotion to Manager of the SOC team. Congratulations!\n<pre>\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⡀⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠈⠄⠄⠄⠁⠄⠁⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⣀⣀⣤⣤⣴⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣦⣤⣤⣄⣀⡀⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⣴⣿⣿⡿⣿⢿⣟⣿⣻⣟⡿⣟⣿⣟⡿⣟⣿⣻⣟⣿⣻⢿⣻⡿⣿⢿⣷⣆⠄⠄⠄\\n⠄⠄⠄⢘⣿⢯⣷⡿⡿⡿⢿⢿⣷⣯⡿⣽⣞⣷⣻⢯⣷⣻⣾⡿⡿⢿⢿⢿⢯⣟⣞⡮⡀⠄⠄\\n⠄⠄⠄⢸⢞⠟⠃⣉⢉⠉⠉⠓⠫⢿⣿⣷⢷⣻⣞⣿⣾⡟⠽⠚⠊⠉⠉⠉⠙⠻⣞⢵⠂⠄⠄\\n⠄⠄⠄⢜⢯⣺⢿⣻⣿⣿⣷⣔⡄⠄⠈⠛⣿⣿⡾⠋⠁⠄⠄⣄⣶⣾⣿⡿⣿⡳⡌⡗⡅⠄⠄\\n⠄⠄⠄⢽⢱⢳⢹⡪⡞⠮⠯⢯⡻⡬⡐⢨⢿⣿⣿⢀⠐⡥⣻⡻⠯⡳⢳⢹⢜⢜⢜⢎⠆⠄⠄\\n⠄⠄⠠⣻⢌⠘⠌⡂⠈⠁⠉⠁⠘⠑⢧⣕⣿⣿⣿⢤⡪⠚⠂⠈⠁⠁⠁⠂⡑⠡⡈⢮⠅⠄⠄\\nAvailable(truncated...)</pre>",
+        "choices": [
+          {
+            "text": "End-win",
+            "next": "End-win"
+          }
+        ]
+      },
+      {
+        "id": "Require the use of a password manager",
+        "text": "Your employees now remember their passwords all the time. However, their credentials are still just as exposed. Since you failed to properly protect employee credentials, another threat actor has breached the company through an admin's account. This causes a loss for the company and a demotion for you to enter security awareness training. \n\n[[End-loss]]",
+        "choices": [
+          {
+            "text": "End-loss",
+            "next": "End-loss"
+          }
+        ]
+      },
+      {
+        "id": "Reset passwords of compromised accounts",
+        "text": "You decided to reset the password of all the compromised accounts, potentially preventing access from the actors. However, how future proof is this? How will you prevent and contain incidents like these in the future?",
+        "choices": [
+          {
+            "text": "Block sender IP",
+            "next": "Block sender IP"
+          },
+          {
+            "text": "Block sender email address",
+            "next": "Block sender email address"
+          },
+          {
+            "text": "Enforce MFA on employee accounts where available",
+            "next": "Enforce MFA on employee accounts where available"
+          }
+        ]
+      },
+      {
+        "id": "Review SIEM and SSO logs.",
+        "text": "You review SSO logs and find the first logon from a new user. You query SIEM logs for user activity during this time. During this review, you find that the user had downloaded a document and upon opening the document, it is discovered that the document contained sensitive customer data.\nWhat is your next step?",
+        "choices": [
+          {
+            "text": "Dismiss this as normal user activity (file downloads of customer data are typical for your company",
+            "next": "Dismiss this as normal user activity (file downloads of customer data are typical for your company"
+          },
+          {
+            "text": "Remove new user and block their IP",
+            "next": "Remove new user and block their IP"
+          }
+        ]
+      },
+      {
+        "id": "Run AV scans on all network devices",
+        "text": "After running AV scans, you determine that all devices on the network are free of malware. What do you do next? \n\n[[Close the incident as a false positive]]",
+        "choices": [
+          {
+            "text": "Close the incident as a false positive",
+            "next": "Close the incident as a false positive"
+          }
+        ]
+      },
+      {
+        "id": "Take no action since the emails are already blocked",
+        "text": "Despite blocking the phishing emails, the stolen credentials are still valid. Attackers gain access to finance systems, leading to unauthorized wire transfers by evening. \n\n[[End-loss]]",
+        "choices": [
+          {
+            "text": "End-loss",
+            "next": "End-loss"
+          }
+        ]
+      },
+      {
+        "id": "Update the password complexity requirements",
+        "text": "An audit is performed on the company, and they determine that your password complexity requirements are non-compliant. After adjusting your complexity requirements (and paying a small fee) you have successfully protected your fellow employees' credentials. \n\nThe question is, for how long?\n\n<pre>\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⡀⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠈⠄⠄⠄⠁⠄⠁⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⠄⠄⣀⣀⣤⣤⣴⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣦⣤⣤⣄⣀⡀⠄⠄⠄⠄⠄\\n⠄⠄⠄⠄⣴⣿⣿⡿⣿⢿⣟⣿⣻⣟⡿⣟⣿⣟⡿⣟⣿⣻⣟⣿⣻⢿⣻⡿⣿⢿⣷⣆⠄⠄⠄\\n⠄⠄⠄⢘⣿⢯⣷⡿⡿⡿⢿⢿⣷⣯⡿⣽⣞⣷⣻⢯⣷⣻⣾⡿⡿⢿⢿⢿⢯⣟⣞⡮⡀⠄⠄\\n⠄⠄⠄⢸⢞⠟⠃⣉⢉⠉⠉⠓⠫⢿⣿⣷⢷⣻⣞⣿⣾⡟⠽⠚⠊⠉⠉⠉⠙⠻⣞⢵⠂⠄⠄\\n⠄⠄⠄⢜⢯⣺⢿⣻⣿⣿⣷⣔⡄⠄⠈⠛⣿⣿⡾⠋⠁⠄⠄⣄⣶⣾⣿⡿⣿⡳⡌⡗⡅⠄⠄\\n⠄⠄⠄⢽⢱⢳⢹⡪⡞⠮⠯⢯⡻⡬⡐⢨⢿⣿⣿⢀⠐⡥⣻⡻⠯⡳⢳⢹⢜⢜⢜⢎⠆⠄⠄\\n⠄⠄⠠⣻⢌⠘⠌⡂⠈⠁⠉⠁⠘⠑⢧⣕⣿⣿⣿⢤⡪⠚⠂⠈⠁⠁⠁⠂⡑⠡⡈⢮⠅⠄⠄\\n⠄⠄⠠⣳⣿⣿⣽⣭⣶⣶⣶⣶⣶⣺⣟⣾⣻⣿⣯⢯⢿⣳⣶⣶⣶⣖⣶⣮⣭⣷⣽⣗⠍⠄⠄\\n⠄⠄⢀⢻⡿⡿⣟⣿⣻⣽⣟⣿⢯⣟⣞⡷⣿⣿⣯⢿⢽⢯⣿⣻⣟⣿⣻⣟⣿⣻⢿⣿⢀⠄⠄\\n⠄⠄⠄⡑⡏⠯⡯⡳⡯⣗⢯⢟⡽⣗⣯⣟⣿⣿⣾⣫⢿⣽⠾⡽⣺⢳⡫⡞⡗⡝⢕⠕⠄⠄⠄\\n⠄⠄⠄⢂⡎⠅⡃⢇⠇⠇⣃⣧⡺⡻⡳⡫⣿⡿⣟⠞⠽⠯⢧⣅⣃⠣⠱⡑⡑⠨⢐⢌⠂⠄⠄\\n⠄⠄⠄⠐⠼⣦⢀⠄⣶⣿⢿⣿⣧⣄⡌⠂⠢⠩⠂⠑⣁⣅⣾⢿⣟⣷⠦⠄⠄⡤⡇⡪⠄⠄⠄\\nAR(truncated...)</pre>",
+        "choices": [
+          {
+            "text": "End-win",
+            "next": "End-win"
+          }
+        ]
+      },
+      {
+        "id": "reset passwords to see if it was a system error ",
+        "text": "You decide to reset the affected users passwords and are under the impression that all is resolved. However while reseting users passwords you discover a user you do not recognize. What should you do?\n\n[[Continue about your day since the passwords have been fully reset]]\n[[Delete the user]]\n[[Check with HR about recent hires]]",
+        "choices": [
+          {
+            "text": "Continue about your day since the passwords have been fully reset",
+            "next": "Continue about your day since the passwords have been fully reset"
+          },
+          {
+            "text": "Delete the user",
+            "next": "Delete the user"
+          },
+          {
+            "text": "Check with HR about recent hires",
+            "next": "Check with HR about recent hires"
+          }
+        ]
+      }
+    ]
+  }
+]
+
