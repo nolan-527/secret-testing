@@ -445,39 +445,7 @@
                     const attemptDiv = document.createElement('div');
                     let colorClass = 'text-red-400';
                     if (attempt.outcome.includes('SUCCESS')) {
-                        colorClass = 'text-green-4This is a classic, frustrating problem. Your code is 99% correct. The game runs, the CSS is right, and the JSON is valid.
-
-The problem is a tiny, technical "fight" between your JavaScript code and the browser.
-
-When your JavaScript runs this line:
-`const processedText = currentScene.text.replace(/\\n/g, '\n');`
-
-It correctly turns the `\\n` from your JSON into a simple newline character (`\n`).
-
-However, when you then set the `innerHTML`...
-`centeredPassageEl.innerHTML = processedText;`
-
-...the browser "helpfully" processes the HTML *before* the `<pre>` tag gets to read the `\n`. It "sanitizes" the `\n` characters, and the `<pre>` tag never sees them.
-
-### The Easy Fix: Use `<br>`
-
-The solution is to stop using `\n` and use an HTML line-break tag (`<br>`) instead. Your `<pre>` tag will still preserve all the spaces, and the `<br>` tag will force the line breaks.
-
-Here is the one-line change you need to make in your `index.html` file:
-
-1.  Open your **`index.html`** file.
-2.  Find the `renderScene` function (around line 205).
-3.  Find this line of code:
-    ```javascript
-    const processedText = currentScene.text.replace(/\\n/g, '\n');
-    ```
-4.  **Change it** to this:
-    ```javascript
-    const processedText = currentScene.text.replace(/\\n/g, '<br>');
-    ```
-
-That's it. Save the file, refresh your browser, and your ASCII art should now display perfectly.
-400';
+                        colorClass = 'text-green-400';
                     } else if (attempt.outcome.includes('FAILURE') || attempt.outcome.includes('LOSS')) {
                         colorClass = 'text-yellow-400';
                     }
