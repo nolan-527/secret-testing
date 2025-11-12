@@ -200,10 +200,9 @@
             titleEl.textContent = `${scenarioData.scenarioTitle}: ${currentScene.id.replace(/-/g, ' ')}`;
             
             // --- THIS IS THE MODIFIED CODE ---
-            // After JSON parsing, "\\n" becomes a newline "\n". This finds
-            // all newline characters and replaces them with <br> for HTML.
-            const processedText = currentScene.text.replace(/\n/g, '<br>');
-            centeredPassageEl.innerHTML = processedText;
+            // We removed the .replace() function.
+            // The JSON file now contains the correct <br> tags, so we just set the HTML.
+            centeredPassageEl.innerHTML = currentScene.text;
             // --- END OF MODIFIED CODE ---
 
             choicesContainerEl.innerHTML = '';
