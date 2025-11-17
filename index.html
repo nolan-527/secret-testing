@@ -84,10 +84,8 @@
         // --- SCENARIO LOADING: FETCHES AND PARSES ALL DATA ---
         async function loadScenario() {
             try {
-                // --- THIS IS THE MODIFIED LINE ---
-                // It adds a unique timestamp to the file request to "bust" the cache.
+                // We add a cache-busting query string to the fetch
                 const response = await fetch('scenarios_config.json?v=' + new Date().getTime());
-                // --- END OF MODIFIED LINE ---
                 
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
@@ -170,7 +168,7 @@
             scenarioData = scenarioLibrary[scenarioId]; 
             
             // Initialize game state
-            score = 100;
+            score = 100; // Start at 100
             mistakes = [];
             currentSceneKey = scenarioData.startPassageId;
             
@@ -201,11 +199,8 @@
             // Set title: "Scenario Title: Current Passage ID"
             titleEl.textContent = `${scenarioData.scenarioTitle}: ${currentScene.id.replace(/-/g, ' ')}`;
             
-            // --- THIS IS THE MODIFIED CODE ---
-            // We removed the .replace() function.
-            // The JSON file now contains the correct HTML, so we just set it.
+            // This just displays the HTML from the JSON file
             centeredPassageEl.innerHTML = currentScene.text;
-            // --- END OF MODIFIED CODE ---
 
             choicesContainerEl.innerHTML = '';
             
@@ -230,14 +225,24 @@
             saveGame(); // Save state after every successful render
         };
 
+        // --- THIS IS THE MODIFIED FUNCTION ---
         const handleChoice = (choice) => {
-            if (choice.penalty && choice.penalty > 0) {
-                score -= choice.penalty;
+            // Check if a penalty value exists at all (positive or negative)
+            if (choice.penalty) {
+                score -= choice.penalty; // This now works for all numbers
+                                         // e.g., score -= -10   (adds 10)
+                                         // e.g., score -= 20    (subtracts 20)
+            }
+            
+            // Only add a "mistake" if the penalty is a positive number (a bad choice)
+            if (choice.penalty && choice.penalty > 0 && choice.mistake) {
                 mistakes.push(choice.mistake);
             }
+
             currentSceneKey = choice.next;
             renderScene();
         };
+        // --- END OF MODIFIED FUNCTION ---
 
         // --- MODIFIED handleGameOver function ---
         const handleGameOver = (endPassageId) => {
@@ -262,6 +267,7 @@
                 endTitle = 'Simulation Complete (Failure)';
             } else {
                 // Fallback: If the ID is neutral (like 'End'), use the score to determine success.
+                // We use the new PASSING_SCORE_THRESHOLD
                 if (score >= PASSING_SCORE_THRESHOLD) {
                     endTitle = 'Simulation Complete (Success - Acceptable Risk)';
                 } else {
@@ -272,7 +278,7 @@
             document.querySelector('#results-card h2').textContent = endTitle;
             // End of modified logic
 
-            finalScoreEl.textContent = `${score} / 100`;
+            finalScoreEl.textContent = `${score} / 100`; // Score is now variable
             renderFeedback();
             
             // Finalize the run
@@ -346,7 +352,7 @@
                 const result = {
                     date: new Date().toLocaleString(),
                     scenario: scenarioData.scenarioTitle, // Save the full title
-                    finalScore: score,
+                    finalScore: score, // This will now save the variable score
                     outcome: currentSceneKey.toUpperCase().replace('-', ' '),
                     mistakes: mistakes
                 };
@@ -386,7 +392,7 @@
 
             // Fallback: If the passage ID is neutral, use the score to determine success for feedback.
             if (!isWin && !currentPassageId.includes('loss')) {
-                isWin = score >= PASSING_SCORE_THRESHOLD;
+                isWin = score >= PASSING_SCORE_THRESHOLD; // Use the threshold
             }
 
             if (isWin) {
@@ -445,9 +451,10 @@
                 history.slice().reverse().forEach((attempt) => {
                     const attemptDiv = document.createElement('div');
                     let colorClass = 'text-red-400';
-                    if (attempt.outcome.includes('SUCCESS')) {
+                    // Use the threshold to determine color for history
+                    if (attempt.finalScore >= PASSING_SCORE_THRESHOLD) {
                         colorClass = 'text-green-400';
-                    } else if (attempt.outcome.includes('FAILURE') || attempt.outcome.includes('LOSS')) {
+                    } else {
                         colorClass = 'text-yellow-400';
                     }
 
@@ -457,7 +464,7 @@
                             <span class="font-bold ${colorClass}">${attempt.scenario} (${attempt.outcome})</span>
                             <span class="text-sm">${attempt.date}</span>
                         </div>
-                        <p class="mb-1">Score: <span class="${colorClass}">${attempt.finalScore}/100</span></p>
+                        <p class="mb-1">Score: <span class="${colorClass}">${attempt.finalScore}</span></p>
                         <p>Mistakes: ${attempt.mistakes.length > 0 ? attempt.mistakes.join('; ') : 'None'}</p>
                     `;
                     historyList.appendChild(attemptDiv);
