@@ -79,19 +79,23 @@
         "choices": [
           {
             "text": "Review SIEM and SSO logs.",
-            "next": "Review-SIEM-and-SSO-logs"
+            "next": "Review-SIEM-and-SSO-logs",
+            "penalty": -5
           },
           {
             "text": "Analyze proxy traffic for clicks.",
-            "next": "Analyze-proxy-traffic-for-clicks"
+            "next": "Analyze-proxy-traffic-for-clicks",
+            "penalty": -5
           },
           {
             "text": "Identify impacted accounts.",
-            "next": "Identify-impacted-accounts"
+            "next": "Identify-impacted-accounts",
+            "penalty": -5
           },
           {
             "text": "Investigate email contents",
-            "next": "Investigate-email-contents"
+            "next": "Investigate-email-contents",
+            "penalty": -5
           }
         ]
       },
@@ -141,7 +145,8 @@
         "choices": [
           {
             "text": "Quarantine the emails for investigation",
-            "next": "Quarantine-the-emails-for-investigation"
+            "next": "Quarantine-the-emails-for-investigation",
+            "penalty": -5
           },
           {
             "text": "Monitor the accounts quietly for anomalies",
@@ -157,7 +162,8 @@
         "choices": [
           {
             "text": "Reset passwords of compromised accounts",
-            "next": "Reset-passwords-of-compromised-accounts"
+            "next": "Reset-passwords-of-compromised-accounts",
+            "penalty": -10
           },
           {
             "text": "Monitor the accounts quietly for anomalies",
