@@ -10,9 +10,7 @@
         "choices": [
           {
             "text": "Continue",
-            "next": "Continue",
-            "penalty": 0,
-            "mistake": "N/A"
+            "next": "Continue"
           }
         ]
       },
@@ -29,13 +27,12 @@
           {
             "text": "Quarantine the emails for investigation",
             "next": "Quarantine-the-emails-for-investigation",
-            "penalty": 0,
-            "mistake": "N/A"
+            "penalty": -10
           },
           {
             "text": "Personally investigate the link (Sand box)",
             "next": "Personally-investigate-the-link-Sand-box",
-            "penalty": 15,
+            "penalty": 5,
             "mistake": "Prioritized analysis over the containment of the active email threat."
           }
         ]
@@ -82,27 +79,19 @@
         "choices": [
           {
             "text": "Review SIEM and SSO logs.",
-            "next": "Review-SIEM-and-SSO-logs",
-            "penalty": 0,
-            "mistake": "N/A"
+            "next": "Review-SIEM-and-SSO-logs"
           },
           {
             "text": "Analyze proxy traffic for clicks.",
-            "next": "Analyze-proxy-traffic-for-clicks",
-            "penalty": 0,
-            "mistake": "N/A"
+            "next": "Analyze-proxy-traffic-for-clicks"
           },
           {
             "text": "Identify impacted accounts.",
-            "next": "Identify-impacted-accounts",
-            "penalty": 0,
-            "mistake": "N/A"
+            "next": "Identify-impacted-accounts"
           },
           {
             "text": "Investigate email contents",
-            "next": "Investigate-email-contents",
-            "penalty": 0,
-            "mistake": "N/A"
+            "next": "Investigate-email-contents"
           }
         ]
       },
@@ -112,9 +101,7 @@
         "choices": [
           {
             "text": "Analyze proxy traffic for clicks.",
-            "next": "Analyze-proxy-traffic-for-clicks",
-            "penalty": 0,
-            "mistake": "N/A"
+            "next": "Analyze-proxy-traffic-for-clicks"
           }
         ]
       },
@@ -124,9 +111,7 @@
         "choices": [
           {
             "text": "Investigate email sender",
-            "next": "Investigate-email-sender",
-            "penalty": 0,
-            "mistake": "N/A"
+            "next": "Investigate-email-sender"
           }
         ]
       },
@@ -136,9 +121,7 @@
         "choices": [
           {
             "text": "Investigate email contents",
-            "next": "Investigate-email-contents",
-            "penalty": 0,
-            "mistake": "N/A"
+            "next": "Investigate-email-contents"
           }
         ]
       },
@@ -148,9 +131,7 @@
         "choices": [
           {
             "text": "Analyze proxy traffic for clicks.",
-            "next": "Analyze-proxy-traffic-for-clicks",
-            "penalty": 0,
-            "mistake": "N/A"
+            "next": "Analyze-proxy-traffic-for-clicks"
           }
         ]
       },
@@ -160,9 +141,7 @@
         "choices": [
           {
             "text": "Quarantine the emails for investigation",
-            "next": "Quarantine-the-emails-for-investigation",
-            "penalty": 0,
-            "mistake": "N/A"
+            "next": "Quarantine-the-emails-for-investigation"
           },
           {
             "text": "Monitor the accounts quietly for anomalies",
@@ -178,9 +157,7 @@
         "choices": [
           {
             "text": "Reset passwords of compromised accounts",
-            "next": "Reset-passwords-of-compromised-accounts",
-            "penalty": 0,
-            "mistake": "N/A"
+            "next": "Reset-passwords-of-compromised-accounts"
           },
           {
             "text": "Monitor the accounts quietly for anomalies",
@@ -215,8 +192,7 @@
           {
             "text": "Enforce MFA on employee accounts where available",
             "next": "Enforce-MFA-on-employee-accounts-where-available",
-            "penalty": 0,
-            "mistake": "N/A"
+            "penalty": -20
           }
         ]
       },
@@ -226,9 +202,7 @@
         "choices": [
           {
             "text": "End Simulation (Major Loss)",
-            "next": "End-Loss",
-            "penalty": 0,
-            "mistake": "N/A"
+            "next": "End-Loss"
           }
         ]
       },
@@ -238,9 +212,7 @@
         "choices": [
           {
             "text": "End Simulation (Major Loss)",
-            "next": "End-Loss",
-            "penalty": 0,
-            "mistake": "N/A"
+            "next": "End-Loss"
           }
         ]
       },
@@ -251,8 +223,7 @@
           {
             "text": "Enforce MFA on employee accounts where available",
             "next": "Enforce-MFA-on-employee-accounts-where-available",
-            "penalty": 0,
-            "mistake": "N/A"
+            "penalty": -10
           },
           {
             "text": "Require the use of a password manager",
@@ -274,9 +245,7 @@
         "choices": [
           {
             "text": "End Simulation (Success)",
-            "next": "End-Win",
-            "penalty": 0,
-            "mistake": "N/A"
+            "next": "End-Win"
           }
         ]
       },
@@ -286,9 +255,7 @@
         "choices": [
           {
             "text": "End Simulation (Failure)",
-            "next": "End-Loss",
-            "penalty": 0,
-            "mistake": "N/A"
+            "next": "End-Loss"
           }
         ]
       },
@@ -298,9 +265,7 @@
         "choices": [
           {
             "text": "End Simulation (Failure)",
-            "next": "End-Loss",
-            "penalty": 0,
-            "mistake": "N/A"
+            "next": "End-Loss"
           }
         ]
       },
@@ -310,9 +275,7 @@
         "choices": [
           {
             "text": "End Simulation (Major Loss)",
-            "next": "End-Loss",
-            "penalty": 0,
-            "mistake": "N/A"
+            "next": "End-Loss"
           }
         ]
       },
@@ -335,8 +298,7 @@
           {
             "text": "Check with HR about recent hires",
             "next": "Check-with-HR-about-recent-hires",
-            "penalty": 0,
-            "mistake": "N/A"
+            "penalty": -5
           }
         ]
       },
@@ -346,9 +308,7 @@
         "choices": [
           {
             "text": "Review SIEM and SSO logs.",
-            "next": "Review-SIEM-and-SSO-logs",
-            "penalty": 0,
-            "mistake": "N/A"
+            "next": "Review-SIEM-and-SSO-logs"
           }
         ]
       },
@@ -358,9 +318,7 @@
         "choices": [
           {
             "text": "End Simulation (Major Loss)",
-            "next": "End-Loss",
-            "penalty": 0,
-            "mistake": "N/A"
+            "next": "End-Loss"
           }
         ]
       },
@@ -370,9 +328,7 @@
         "choices": [
           {
             "text": "End Simulation (Failure)",
-            "next": "End-Loss",
-            "penalty": 0,
-            "mistake": "N/A"
+            "next": "End-Loss"
           }
         ]
       },
@@ -382,9 +338,7 @@
         "choices": [
           {
             "text": "Analyze proxy traffic for clicks.",
-            "next": "Analyze-proxy-traffic-for-clicks",
-            "penalty": 0,
-            "mistake": "N/A"
+            "next": "Analyze-proxy-traffic-for-clicks"
           }
         ]
       },
