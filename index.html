@@ -56,7 +56,7 @@
         
         // --- GLOBAL GAME STATE VARIABLES ---
         let currentSceneKey; 
-        let score;
+        let score; // This is the RAW score, can go above 100 or below 0
         let mistakes;
         let scenarioLibrary = {}; // Stores ALL scenarios keyed by ID
         let scenarioData = null; // Stores the CURRENT active scenario object
@@ -225,13 +225,11 @@
             saveGame(); // Save state after every successful render
         };
 
-        // --- THIS IS THE MODIFIED FUNCTION ---
+        // --- THIS IS THE MODIFIED FUNCTION (HANDLECHOICE) ---
         const handleChoice = (choice) => {
-            // Check if a penalty value exists at all (positive or negative)
+            // Check if a penalty value exists at all
             if (choice.penalty) {
-                score -= choice.penalty; // This now works for all numbers
-                                         // e.g., score -= -10   (adds 10)
-                                         // e.g., score -= 20    (subtracts 20)
+                score -= choice.penalty; // Let the score go below 0 or above 100
             }
             
             // Only add a "mistake" if the penalty is a positive number (a bad choice)
@@ -244,7 +242,7 @@
         };
         // --- END OF MODIFIED FUNCTION ---
 
-        // --- MODIFIED handleGameOver function ---
+        // --- THIS IS THE MODIFIED FUNCTION (HANDLEGAMEOVER) ---
         const handleGameOver = (endPassageId) => {
             storyContentEl.classList.add('hidden');
             storyContentEl.style.display = 'none'; 
@@ -278,11 +276,22 @@
             document.querySelector('#results-card h2').textContent = endTitle;
             // End of modified logic
 
-            finalScoreEl.textContent = `${score} / 100`; // Score is now variable
-            renderFeedback();
+            // --- NEW SCORING DISPLAY LOGIC ---
+            // Calculate the score to be displayed, clamping it between 0 and 100
+            let displayedScore = score; 
+            if (displayedScore > 100) {
+                displayedScore = 100; // Cap at 100
+            }
+            if (displayedScore < 0) {
+                displayedScore = 0;   // Floor at 0
+            }
+            finalScoreEl.textContent = `${displayedScore} / 100`; // Display the clamped score
+            // --- END OF NEW LOGIC ---
+
+            renderFeedback(); // This function still uses the raw 'score' for its logic
             
             // Finalize the run
-            saveGameToHistory(scenarioData.scenarioId); 
+            saveGameToHistory(scenarioData.scenarioId); // Saves the RAW score (e.g., -35)
             localStorage.removeItem('threatQuestSave'); // Clear save
             
             // Display end menu
@@ -304,6 +313,7 @@
             backBtn.addEventListener('click', showScenarioSelector);
             menuButtonWrapper.appendChild(backBtn);
         };
+        // --- END OF MODIFIED FUNCTION ---
         
         // --- SAVE/LOAD/HISTORY FUNCTIONS (Modified to handle scenarioId) ---
         
@@ -313,7 +323,7 @@
                 const gameState = JSON.stringify({
                     scenarioId: scenarioData.scenarioId, // Save the current scenario ID
                     key: currentSceneKey,
-                    score: score,
+                    score: score, // Saves the raw score
                     mistakes: mistakes
                 });
                 localStorage.setItem('threatQuestSave', gameState);
@@ -322,7 +332,8 @@
             }
         };
 
-        const loadGame = () => {
+        // --- THIS IS THE MODIFIED FUNCTION (LOADGAME) ---
+        const loadGame = () => { // Fixed typo here
             try {
                 const savedData = localStorage.getItem('threatQuestSave');
                 if (savedData) {
@@ -343,6 +354,7 @@
                 return false;
             }
         };
+        // --- END OF MODIFIED FUNCTION ---
 
         const saveGameToHistory = () => {
             if (!scenarioData) return;
@@ -352,7 +364,7 @@
                 const result = {
                     date: new Date().toLocaleString(),
                     scenario: scenarioData.scenarioTitle, // Save the full title
-                    finalScore: score, // This will now save the variable score
+                    finalScore: score, // This will now save the raw, unclamped score (e.g., -35 or 110)
                     outcome: currentSceneKey.toUpperCase().replace('-', ' '),
                     mistakes: mistakes
                 };
@@ -390,9 +402,9 @@
             const currentPassageId = currentSceneKey.toLowerCase();
             let isWin = currentPassageId.includes('win');
 
-            // Fallback: If the passage ID is neutral, use the score to determine success for feedback.
+            // Fallback: Use the raw score and threshold
             if (!isWin && !currentPassageId.includes('loss')) {
-                isWin = score >= PASSING_SCORE_THRESHOLD; // Use the threshold
+                isWin = score >= PASSING_SCORE_THRESHOLD; 
             }
 
             if (isWin) {
@@ -451,12 +463,13 @@
                 history.slice().reverse().forEach((attempt) => {
                     const attemptDiv = document.createElement('div');
                     let colorClass = 'text-red-400';
-                    // Use the threshold to determine color for history
+                    // Use the raw score and threshold to determine color
                     if (attempt.finalScore >= PASSING_SCORE_THRESHOLD) {
                         colorClass = 'text-green-400';
-                    } else {
+                    } else if (attempt.finalScore >= 0) { // Any score 0 or higher that isn't a pass
                         colorClass = 'text-yellow-400';
                     }
+                    // Negative scores will stay the default red
 
                     attemptDiv.className = 'p-3 mb-2 border-b border-green-700 last:border-b-0';
                     attemptDiv.innerHTML = `
@@ -464,7 +477,7 @@
                             <span class="font-bold ${colorClass}">${attempt.scenario} (${attempt.outcome})</span>
                             <span class="text-sm">${attempt.date}</span>
                         </div>
-                        <p class="mb-1">Score: <span class="${colorClass}">${attempt.finalScore}</span></p>
+                        <p class="mb-1">Score: <span class="${colorClass}">${attempt.finalScore}</span></p> 
                         <p>Mistakes: ${attempt.mistakes.length > 0 ? attempt.mistakes.join('; ') : 'None'}</p>
                     `;
                     historyList.appendChild(attemptDiv);
