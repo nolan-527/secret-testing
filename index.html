@@ -56,7 +56,7 @@
         
         // --- GLOBAL GAME STATE VARIABLES ---
         let currentSceneKey; 
-        let score; // This is the RAW score, will be clamped 0-100
+        let score; 
         let mistakes;
         let scenarioLibrary = {}; // Stores ALL scenarios keyed by ID
         let scenarioData = null; // Stores the CURRENT active scenario object
@@ -84,7 +84,7 @@
         // --- SCENARIO LOADING: FETCHES AND PARSES ALL DATA ---
         async function loadScenario() {
             try {
-                // We add a cache-busting query string to the fetch
+                // Cache-buster included
                 const response = await fetch('scenarios_config.json?v=' + new Date().getTime());
                 
                 if (!response.ok) {
@@ -167,8 +167,8 @@
             // Set the global variable to the chosen scenario object
             scenarioData = scenarioLibrary[scenarioId]; 
             
-            // Initialize game state
-            score = 100; // Start at 100
+            // Start at 90 to allow for early bonuses
+            score = 90; 
             mistakes = [];
             currentSceneKey = scenarioData.startPassageId;
             
@@ -199,7 +199,7 @@
             // Set title: "Scenario Title: Current Passage ID"
             titleEl.textContent = `${scenarioData.scenarioTitle}: ${currentScene.id.replace(/-/g, ' ')}`;
             
-            // This just displays the HTML from the JSON file
+            // Simple HTML rendering
             centeredPassageEl.innerHTML = currentScene.text;
 
             choicesContainerEl.innerHTML = '';
@@ -225,23 +225,20 @@
             saveGame(); // Save state after every successful render
         };
 
-        // --- THIS IS THE MODIFIED FUNCTION (HANDLECHOICE) ---
+        // --- MODIFIED: Clamps score between 0 and 100 ---
         const handleChoice = (choice) => {
             // Check if a penalty value exists at all
             if (choice.penalty) {
-                score -= choice.penalty; // Apply the penalty or reward
+                score -= choice.penalty; 
             }
 
-            // --- NEW CLAMPING LOGIC ---
-            // If score goes over 100, set it back to 100
+            // Clamp the score so it never exceeds 100 or drops below 0
             if (score > 100) {
                 score = 100;
             }
-            // If score goes below 0, set it back to 0
             if (score < 0) {
                 score = 0;
             }
-            // --- END OF NEW LOGIC ---
             
             // Only add a "mistake" if the penalty is a positive number (a bad choice)
             if (choice.penalty && choice.penalty > 0 && choice.mistake) {
@@ -251,9 +248,7 @@
             currentSceneKey = choice.next;
             renderScene();
         };
-        // --- END OF MODIFIED FUNCTION ---
 
-        // --- THIS IS THE MODIFIED FUNCTION (HANDLEGAMEOVER) ---
         const handleGameOver = (endPassageId) => {
             storyContentEl.classList.add('hidden');
             storyContentEl.style.display = 'none'; 
@@ -269,14 +264,11 @@
             const idLower = endPassageId.toLowerCase();
 
             if (idLower.includes('win')) {
-                // Explicitly named 'win' passage overrides score
                 endTitle = 'Simulation Complete (Success)'; 
             } else if (idLower.includes('loss')) {
-                // Explicitly named 'loss' passage overrides score
                 endTitle = 'Simulation Complete (Failure)';
             } else {
-                // Fallback: If the ID is neutral (like 'End'), use the score to determine success.
-                // We use the new PASSING_SCORE_THRESHOLD
+                // Fallback based on score threshold
                 if (score >= PASSING_SCORE_THRESHOLD) {
                     endTitle = 'Simulation Complete (Success - Acceptable Risk)';
                 } else {
@@ -285,12 +277,8 @@
             }
             
             document.querySelector('#results-card h2').textContent = endTitle;
-            // End of modified logic
-
-            // --- NEW SCORING DISPLAY LOGIC ---
-            // The score is now always 0-100, so we can just display it.
+            
             finalScoreEl.textContent = `${score} / 100`; 
-            // --- END OF NEW LOGIC ---
 
             renderFeedback(); 
             
@@ -317,17 +305,16 @@
             backBtn.addEventListener('click', showScenarioSelector);
             menuButtonWrapper.appendChild(backBtn);
         };
-        // --- END OF MODIFIED FUNCTION ---
         
-        // --- SAVE/LOAD/HISTORY FUNCTIONS (Modified to handle scenarioId) ---
+        // --- SAVE/LOAD/HISTORY FUNCTIONS ---
         
         const saveGame = () => {
             if (!scenarioData) return;
             try {
                 const gameState = JSON.stringify({
-                    scenarioId: scenarioData.scenarioId, // Save the current scenario ID
+                    scenarioId: scenarioData.scenarioId, 
                     key: currentSceneKey,
-                    score: score, // Saves the clamped 0-100 score
+                    score: score, 
                     mistakes: mistakes
                 });
                 localStorage.setItem('threatQuestSave', gameState);
@@ -341,10 +328,8 @@
                 const savedData = localStorage.getItem('threatQuestSave');
                 if (savedData) {
                     const gameState = JSON.parse(savedData);
-                    
-                    // Set the current scenario data based on the saved ID
                     scenarioData = scenarioLibrary[gameState.scenarioId];
-                    if (!scenarioData) return false; // Saved scenario no longer exists
+                    if (!scenarioData) return false; 
                     
                     currentSceneKey = gameState.key;
                     score = gameState.score;
@@ -365,8 +350,8 @@
                 
                 const result = {
                     date: new Date().toLocaleString(),
-                    scenario: scenarioData.scenarioTitle, // Save the full title
-                    finalScore: score, // This will now save the clamped 0-100 score
+                    scenario: scenarioData.scenarioTitle, 
+                    finalScore: score, 
                     outcome: currentSceneKey.toUpperCase().replace('-', ' '),
                     mistakes: mistakes
                 };
@@ -397,32 +382,26 @@
             });
         };
         
-        // --- MODIFIED renderFeedback function ---
         const renderFeedback = () => {
             feedbackCardEl.innerHTML = '';
             
             const currentPassageId = currentSceneKey.toLowerCase();
             let isWin = currentPassageId.includes('win');
 
-            // Fallback: Use the score and threshold
             if (!isWin && !currentPassageId.includes('loss')) {
                 isWin = score >= PASSING_SCORE_THRESHOLD; 
             }
 
             if (isWin) {
-                // Winning feedback (focus on how well they scored)
                 if (mistakes.length === 0) {
                      feedbackCardEl.innerHTML = `<div class="text-center"><p class="text-green-400 font-bold">Excellent! You made no mistakes and followed the NIST framework perfectly.</p><p class="mt-2">Your actions led to a successful incident response and you saved the company from a major breach.</p></div>`;
                 } else {
-                    // Won, but with mistakes
                     let listHtml = mistakes.map(m => `<li><strong>Mistake:</strong> ${m}</li>`).join('');
                     feedbackCardEl.innerHTML = `<div class="text-center"><p class="text-yellow-400 font-bold">Success, but with room for improvement.</p><p class="mt-2">You contained the incident, but you made mistakes that cost time and resources:</p><ul class="list-disc list-inside mt-4 text-left mx-auto max-w-sm space-y-2">${listHtml}</ul></div>`;
                 }
             } else {
-                // Losing feedback (focus on failure reasons)
                 let listHtml = mistakes.map(m => `<li><strong>Mistake:</strong> ${m}</li>`).join('');
                 if (mistakes.length === 0) {
-                    // The player probably hit a fatal loss passage with no associated score penalty
                     feedbackCardEl.innerHTML = `<div class="text-center"><p class="text-red-400 font-bold">CRITICAL FAILURE.</p><p class="mt-2">Your final decision led to a catastrophic outcome, even though you made few other mistakes.</p></div>`;
                 } else {
                     feedbackCardEl.innerHTML = `<div class="text-center"><p class="text-red-400 font-bold">CRITICAL FAILURE.</p><p class="mt-2">The incident spiraled out of control due to these critical missteps:</p><ul class="list-disc list-inside mt-4 text-left mx-auto max-w-sm space-y-2">${listHtml}</ul></div>`;
@@ -430,7 +409,6 @@
             }
         };
         
-        // --- THIS IS THE MODIFIED FUNCTION (SHOWHISTORYMENU) ---
         const showHistoryMenu = () => {
             resetContainers();
             gameOverContainerEl.classList.remove('hidden');
@@ -465,15 +443,12 @@
             } else {
                 history.slice().reverse().forEach((attempt) => {
                     const attemptDiv = document.createElement('div');
-                    
-                    // --- NEW COLOR LOGIC ---
-                    let colorClass = 'text-red-400'; // Default to red (for a score of 0)
+                    let colorClass = 'text-red-400';
                     if (attempt.finalScore >= PASSING_SCORE_THRESHOLD) {
-                        colorClass = 'text-green-400'; // Pass (75-100)
+                        colorClass = 'text-green-400';
                     } else if (attempt.finalScore > 0) { 
-                        colorClass = 'text-yellow-400'; // Didn't pass, but not 0 (1-74)
+                        colorClass = 'text-yellow-400';
                     }
-                    // --- END OF NEW LOGIC ---
 
                     attemptDiv.className = 'p-3 mb-2 border-b border-green-700 last:border-b-0';
                     attemptDiv.innerHTML = `
@@ -490,11 +465,8 @@
 
             gameEndMenuEl.appendChild(historyList);
         };
-        // --- END OF MODIFIED FUNCTION ---
-
 
         // --- INITIALIZATION ---
-        // Start the process of fetching the scenario data when the page loads
         window.onload = loadScenario;
     </script>
 </body>
