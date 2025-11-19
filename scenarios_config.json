@@ -21,18 +21,18 @@
           {
             "text": "Run AV scans on all network devices",
             "next": "Run-AV-scans-on-all-network-devices",
-            "penalty": 10,
+            "penalty": 20,
             "mistake": "Running an AV scan is an investigation action, but quarantining the active threat is a higher priority containment step."
           },
           {
             "text": "Quarantine the emails for investigation",
             "next": "Quarantine-the-emails-for-investigation",
-            "penalty": -10
+            "penalty": 0
           },
           {
             "text": "Personally investigate the link (Sand box)",
             "next": "Personally-investigate-the-link-Sand-box",
-            "penalty": 5,
+            "penalty": 10,
             "mistake": "Prioritized analysis over the containment of the active email threat."
           }
         ]
@@ -44,7 +44,7 @@
           {
             "text": "Close the incident as a false positive",
             "next": "Close-the-incident-as-a-false-positive",
-            "penalty": 25,
+            "penalty": 50,
             "mistake": "Prematurely closing the incident without checking for credential compromise is a critical failure."
           }
         ]
@@ -79,23 +79,19 @@
         "choices": [
           {
             "text": "Review SIEM and SSO logs.",
-            "next": "Review-SIEM-and-SSO-logs",
-            "penalty": -5
+            "next": "Review-SIEM-and-SSO-logs"
           },
           {
             "text": "Analyze proxy traffic for clicks.",
-            "next": "Analyze-proxy-traffic-for-clicks",
-            "penalty": -5
+            "next": "Analyze-proxy-traffic-for-clicks"
           },
           {
             "text": "Identify impacted accounts.",
-            "next": "Identify-impacted-accounts",
-            "penalty": -5
+            "next": "Identify-impacted-accounts"
           },
           {
             "text": "Investigate email contents",
-            "next": "Investigate-email-contents",
-            "penalty": -5
+            "next": "Investigate-email-contents"
           }
         ]
       },
@@ -146,7 +142,7 @@
           {
             "text": "Quarantine the emails for investigation",
             "next": "Quarantine-the-emails-for-investigation",
-            "penalty": -5
+            "penalty": 0
           },
           {
             "text": "Monitor the accounts quietly for anomalies",
@@ -163,7 +159,7 @@
           {
             "text": "Reset passwords of compromised accounts",
             "next": "Reset-passwords-of-compromised-accounts",
-            "penalty": -10
+            "penalty": 0
           },
           {
             "text": "Monitor the accounts quietly for anomalies",
@@ -174,7 +170,7 @@
           {
             "text": "Take no action since the emails are already blocked",
             "next": "Take-no-action-since-the-emails-are-already-blocked",
-            "penalty": 50,
+            "penalty": 80,
             "mistake": "Ignoring the existing compromise (stolen credentials) is a catastrophic failure."
           }
         ]
@@ -198,7 +194,7 @@
           {
             "text": "Enforce MFA on employee accounts where available",
             "next": "Enforce-MFA-on-employee-accounts-where-available",
-            "penalty": -15
+            "penalty": -5
           }
         ]
       },
@@ -229,7 +225,7 @@
           {
             "text": "Enforce MFA on employee accounts where available",
             "next": "Enforce-MFA-on-employee-accounts-where-available",
-            "penalty": -10
+            "penalty": -5
           },
           {
             "text": "Require the use of a password manager",
@@ -304,7 +300,7 @@
           {
             "text": "Check with HR about recent hires",
             "next": "Check-with-HR-about-recent-hires",
-            "penalty": -5
+            "penalty": 0
           }
         ]
       },
