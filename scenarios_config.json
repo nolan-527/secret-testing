@@ -27,7 +27,7 @@
           {
             "text": "Quarantine the emails for investigation",
             "next": "Quarantine-the-emails-for-investigation",
-            "penalty": -10
+            "penalty": 0
           },
           {
             "text": "Personally investigate the link (Sand box)",
@@ -181,18 +181,18 @@
       },
       {
         "id": "Reset-passwords-of-compromised-accounts",
-        "text": "<p>How will you prevent and contain incidents like these in the future?</p>",
+        "text": "<p>You decided to reset the password of all the compromised accounts, potentially preventing access from the actors. However, how future proof is this?</p><p>How will you prevent and contain incidents like these in the future?</p>",
         "choices": [
           {
             "text": "Block sender IP",
             "next": "Block-sender-IP",
-            "penalty": 10,
+            "penalty": 15,
             "mistake": "Blocking the IP is a short-term fix; it doesn't protect against future, similar attacks from new sources."
           },
           {
             "text": "Block sender email address",
             "next": "Block-sender-email-address",
-            "penalty": 35,
+            "penalty": 20,
             "mistake": "Blocking the email address is temporary; attackers can easily spoof a new address."
           },
           {
@@ -234,13 +234,13 @@
           {
             "text": "Require the use of a password manager",
             "next": "Require-the-use-of-a-password-manager",
-            "penalty": 30,
+            "penalty": 10,
             "mistake": "Password managers are helpful, but MFA is the superior technical control against credential theft."
           },
           {
             "text": "Update the password complexity requirements",
             "next": "Update-the-password-complexity-requirements",
-            "penalty": 30,
+            "penalty": 10,
             "mistake": "Password complexity is a weak control compared to MFA and is easily bypassed."
           }
         ]
