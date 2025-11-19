@@ -167,10 +167,9 @@
             // Set the global variable to the chosen scenario object
             scenarioData = scenarioLibrary[scenarioId]; 
             
-            // --- THIS IS THE MODIFIED LINE ---
-            score = 100; // Start at 100. Deductions will lower this.
-            // --- END OF MODIFIED LINE ---
-
+            // --- START AT 100 ---
+            score = 100; 
+            
             mistakes = [];
             currentSceneKey = scenarioData.startPassageId;
             
@@ -227,14 +226,13 @@
             saveGame(); // Save state after every successful render
         };
 
-        // --- THIS IS THE MODIFIED FUNCTION (HANDLECHOICE) ---
         const handleChoice = (choice) => {
             // Check if a penalty value exists at all
             if (choice.penalty) {
                 score -= choice.penalty; // Apply the penalty or reward
             }
 
-            // --- NEW CLAMPING LOGIC ---
+            // --- CLAMPING LOGIC (0 to 100) ---
             // If score goes over 100, set it back to 100
             if (score > 100) {
                 score = 100;
@@ -243,7 +241,7 @@
             if (score < 0) {
                 score = 0;
             }
-            // --- END OF NEW LOGIC ---
+            // --- END OF CLAMPING LOGIC ---
             
             // Only add a "mistake" if the penalty is a positive number (a bad choice)
             if (choice.penalty && choice.penalty > 0 && choice.mistake) {
@@ -253,9 +251,7 @@
             currentSceneKey = choice.next;
             renderScene();
         };
-        // --- END OF MODIFIED FUNCTION ---
 
-        // --- THIS IS THE MODIFIED FUNCTION (HANDLEGAMEOVER) ---
         const handleGameOver = (endPassageId) => {
             storyContentEl.classList.add('hidden');
             storyContentEl.style.display = 'none'; 
@@ -288,7 +284,7 @@
             
             document.querySelector('#results-card h2').textContent = endTitle;
             
-            // The score is now always 0-100, so we can just display it.
+            // The score is clamped 0-100
             finalScoreEl.textContent = `${score} / 100`; 
 
             renderFeedback(); 
@@ -316,9 +312,8 @@
             backBtn.addEventListener('click', showScenarioSelector);
             menuButtonWrapper.appendChild(backBtn);
         };
-        // --- END OF MODIFIED FUNCTION ---
         
-        // --- SAVE/LOAD/HISTORY FUNCTIONS (Modified to handle scenarioId) ---
+        // --- SAVE/LOAD/HISTORY FUNCTIONS ---
         
         const saveGame = () => {
             if (!scenarioData) return;
@@ -326,7 +321,7 @@
                 const gameState = JSON.stringify({
                     scenarioId: scenarioData.scenarioId, // Save the current scenario ID
                     key: currentSceneKey,
-                    score: score, // Saves the clamped 0-100 score
+                    score: score, // Saves the clamped score
                     mistakes: mistakes
                 });
                 localStorage.setItem('threatQuestSave', gameState);
@@ -365,7 +360,7 @@
                 const result = {
                     date: new Date().toLocaleString(),
                     scenario: scenarioData.scenarioTitle, // Save the full title
-                    finalScore: score, // This will now save the clamped 0-100 score
+                    finalScore: score, // This will now save the clamped score
                     outcome: currentSceneKey.toUpperCase().replace('-', ' '),
                     mistakes: mistakes
                 };
@@ -396,7 +391,6 @@
             });
         };
         
-        // --- MODIFIED renderFeedback function ---
         const renderFeedback = () => {
             feedbackCardEl.innerHTML = '';
             
@@ -489,9 +483,7 @@
             gameEndMenuEl.appendChild(historyList);
         };
 
-
         // --- INITIALIZATION ---
-        // Start the process of fetching the scenario data when the page loads
         window.onload = loadScenario;
     </script>
 </body>
