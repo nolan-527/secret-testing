@@ -21,7 +21,7 @@
           {
             "text": "Run AV scans on all network devices",
             "next": "Run-AV-scans-on-all-network-devices",
-            "penalty": 10,
+            "penalty": 5,
             "mistake": "Running an AV scan is an investigation action, but quarantining the active threat is a higher priority containment step."
           },
           {
@@ -44,7 +44,7 @@
           {
             "text": "Close the incident as a false positive",
             "next": "Close-the-incident-as-a-false-positive",
-            "penalty": 25,
+            "penalty": 20,
             "mistake": "Prematurely closing the incident without checking for credential compromise is a critical failure."
           }
         ]
@@ -80,22 +80,22 @@
           {
             "text": "Review SIEM and SSO logs.",
             "next": "Review-SIEM-and-SSO-logs",
-            "penalty": 0
+            "penalty": -5
           },
           {
             "text": "Analyze proxy traffic for clicks.",
             "next": "Analyze-proxy-traffic-for-clicks",
-            "penalty": 0
+            "penalty": -5
           },
           {
             "text": "Identify impacted accounts.",
             "next": "Identify-impacted-accounts",
-            "penalty": 0
+            "penalty": -5
           },
           {
             "text": "Investigate email contents",
             "next": "Investigate-email-contents",
-            "penalty": 0
+            "penalty": -5
           }
         ]
       },
@@ -121,11 +121,13 @@
       },
       {
         "id": "Investigate-email-sender",
-        "text": "<p>You've traced the email back to a disposable foreign server. You now need to understand the payload.</p>",
+        "text": "<p>After your analysis of impacted accounts, you determine that its best to additionally investigate who the sender of the emails is.</p><p>As mentioned prior, the emails were coming from someone who claimed to be the CFO but upon further investigation, you notice that the email sender's address does not appear to match the CFO's regular email address - a clear sign of a fake account.</p>",
         "choices": [
           {
             "text": "Investigate email contents",
-            "next": "Investigate-email-contents"
+            "next": "Investigate-email-contents",
+            "penalty": 0,
+            "mistake": "N/A"
           }
         ]
       },
@@ -163,7 +165,7 @@
           {
             "text": "Reset passwords of compromised accounts",
             "next": "Reset-passwords-of-compromised-accounts",
-            "penalty": -10
+            "penalty": -15
           },
           {
             "text": "Monitor the accounts quietly for anomalies",
@@ -198,7 +200,7 @@
           {
             "text": "Enforce MFA on employee accounts where available",
             "next": "Enforce-MFA-on-employee-accounts-where-available",
-            "penalty": -5
+            "penalty": -10
           }
         ]
       },
@@ -309,7 +311,7 @@
           {
             "text": "Check with HR about recent hires",
             "next": "Check-with-HR-about-recent-hires",
-            "penalty": -20
+            "penalty": -10
           }
         ]
       },
