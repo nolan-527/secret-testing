@@ -44,7 +44,7 @@
           {
             "text": "Close the incident as a false positive",
             "next": "Close-the-incident-as-a-false-positive",
-            "penalty": 20,
+            "penalty": 25,
             "mistake": "Prematurely closing the incident without checking for credential compromise is a critical failure."
           }
         ]
@@ -56,7 +56,7 @@
           {
             "text": "View network logs",
             "next": "View-network-logs",
-            "penalty": -15,
+            "penalty": -10,
             "mistake": "You are behind the curve; logs should have been viewed earlier, but this is a necessary late action."
           },
           {
@@ -80,22 +80,22 @@
           {
             "text": "Review SIEM and SSO logs.",
             "next": "Review-SIEM-and-SSO-logs",
-            "penalty": -5
+            "penalty": 0
           },
           {
             "text": "Analyze proxy traffic for clicks.",
             "next": "Analyze-proxy-traffic-for-clicks",
-            "penalty": -5
+            "penalty": 0
           },
           {
             "text": "Identify impacted accounts.",
             "next": "Identify-impacted-accounts",
-            "penalty": -5
+            "penalty": 0
           },
           {
             "text": "Investigate email contents",
             "next": "Investigate-email-contents",
-            "penalty": -5
+            "penalty": 0
           }
         ]
       },
@@ -125,9 +125,7 @@
         "choices": [
           {
             "text": "Investigate email contents",
-            "next": "Investigate-email-contents",
-            "penalty": 0,
-            "mistake": "N/A"
+            "next": "Investigate-email-contents"
           }
         ]
       },
@@ -165,7 +163,7 @@
           {
             "text": "Reset passwords of compromised accounts",
             "next": "Reset-passwords-of-compromised-accounts",
-            "penalty": -15
+            "penalty": 0
           },
           {
             "text": "Monitor the accounts quietly for anomalies",
@@ -194,13 +192,13 @@
           {
             "text": "Block sender email address",
             "next": "Block-sender-email-address",
-            "penalty": 25,
+            "penalty": 20,
             "mistake": "Blocking the email address is temporary; attackers can easily spoof a new address."
           },
           {
             "text": "Enforce MFA on employee accounts where available",
             "next": "Enforce-MFA-on-employee-accounts-where-available",
-            "penalty": -10
+            "penalty": -5
           }
         ]
       },
@@ -233,18 +231,18 @@
           {
             "text": "Enforce MFA on employee accounts where available",
             "next": "Enforce-MFA-on-employee-accounts-where-available",
-            "penalty": -10
+            "penalty": -5
           },
           {
             "text": "Require the use of a password manager",
             "next": "Require-the-use-of-a-password-manager",
-            "penalty": 100,
+            "penalty": 10,
             "mistake": "Password managers are helpful, but MFA is the superior technical control against credential theft."
           },
           {
             "text": "Update the password complexity requirements",
             "next": "Update-the-password-complexity-requirements",
-            "penalty": 100,
+            "penalty": 10,
             "mistake": "Password complexity is a weak control compared to MFA and is easily bypassed."
           }
         ]
