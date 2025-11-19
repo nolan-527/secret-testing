@@ -21,7 +21,7 @@
           {
             "text": "Run AV scans on all network devices",
             "next": "Run-AV-scans-on-all-network-devices",
-            "penalty": 10,
+            "penalty": 5,
             "mistake": "Running an AV scan is an investigation action, but quarantining the active threat is a higher priority containment step."
           },
           {
@@ -44,7 +44,7 @@
           {
             "text": "Close the incident as a false positive",
             "next": "Close-the-incident-as-a-false-positive",
-            "penalty": 50,
+            "penalty": 20,
             "mistake": "Prematurely closing the incident without checking for credential compromise is a critical failure."
           }
         ]
@@ -56,19 +56,19 @@
           {
             "text": "View network logs",
             "next": "View-network-logs",
-            "penalty": 10,
+            "penalty": -15,
             "mistake": "You are behind the curve; logs should have been viewed earlier, but this is a necessary late action."
           },
           {
             "text": "reset passwords to see if it was a system error",
             "next": "reset-passwords-to-see-if-it-was-a-system-error",
-            "penalty": 15,
+            "penalty": 10,
             "mistake": "Resetting passwords without prior analysis is a poor investigative and containment choice."
           },
           {
             "text": "Analyze proxy traffic for clicks.",
             "next": "Analyze-proxy-traffic-for-clicks",
-            "penalty": 5,
+            "penalty": -5,
             "mistake": "Necessary step, but you lost critical time closing the incident as a false positive."
           }
         ]
@@ -151,7 +151,7 @@
           {
             "text": "Monitor the accounts quietly for anomalies",
             "next": "Monitor-the-accounts-quietly-for-anomalies",
-            "penalty": 40,
+            "penalty": 100,
             "mistake": "Monitoring instead of immediate quarantine allows the threat to persist, increasing the risk of lateral movement."
           }
         ]
@@ -163,18 +163,18 @@
           {
             "text": "Reset passwords of compromised accounts",
             "next": "Reset-passwords-of-compromised-accounts",
-            "penalty": -10
+            "penalty": -15
           },
           {
             "text": "Monitor the accounts quietly for anomalies",
             "next": "Monitor-the-accounts-quietly-for-anomalies",
-            "penalty": 50,
+            "penalty": 100,
             "mistake": "Failing to reset compromised admin accounts immediately is a critical security failure."
           },
           {
             "text": "Take no action since the emails are already blocked",
             "next": "Take-no-action-since-the-emails-are-already-blocked",
-            "penalty": 80,
+            "penalty": 100,
             "mistake": "Ignoring the existing compromise (stolen credentials) is a catastrophic failure."
           }
         ]
@@ -192,13 +192,13 @@
           {
             "text": "Block sender email address",
             "next": "Block-sender-email-address",
-            "penalty": 20,
+            "penalty": 25,
             "mistake": "Blocking the email address is temporary; attackers can easily spoof a new address."
           },
           {
             "text": "Enforce MFA on employee accounts where available",
             "next": "Enforce-MFA-on-employee-accounts-where-available",
-            "penalty": -5
+            "penalty": -10
           }
         ]
       },
@@ -229,18 +229,18 @@
           {
             "text": "Enforce MFA on employee accounts where available",
             "next": "Enforce-MFA-on-employee-accounts-where-available",
-            "penalty": -5
+            "penalty": -10
           },
           {
             "text": "Require the use of a password manager",
             "next": "Require-the-use-of-a-password-manager",
-            "penalty": 10,
+            "penalty": 100,
             "mistake": "Password managers are helpful, but MFA is the superior technical control against credential theft."
           },
           {
             "text": "Update the password complexity requirements",
             "next": "Update-the-password-complexity-requirements",
-            "penalty": 10,
+            "penalty": 100,
             "mistake": "Password complexity is a weak control compared to MFA and is easily bypassed."
           }
         ]
@@ -292,19 +292,19 @@
           {
             "text": "Continue about your day since the passwords have been fully reset",
             "next": "Continue-about-your-day-since-the-passwords-have-been-fully-reset",
-            "penalty": 30,
+            "penalty": 100,
             "mistake": "Ignoring an unauthorized user found during an incident is a major operational security failure."
           },
           {
             "text": "Delete the user",
             "next": "Delete-the-user",
-            "penalty": 40,
+            "penalty": 100,
             "mistake": "Deleting a user without investigation could violate retention policies and cause business damage."
           },
           {
             "text": "Check with HR about recent hires",
             "next": "Check-with-HR-about-recent-hires",
-            "penalty": -5
+            "penalty": -10
           }
         ]
       },
