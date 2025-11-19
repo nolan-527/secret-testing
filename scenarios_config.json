@@ -21,7 +21,7 @@
           {
             "text": "Run AV scans on all network devices",
             "next": "Run-AV-scans-on-all-network-devices",
-            "penalty": 5,
+            "penalty": 10,
             "mistake": "Running an AV scan is an investigation action, but quarantining the active threat is a higher priority containment step."
           },
           {
@@ -44,7 +44,7 @@
           {
             "text": "Close the incident as a false positive",
             "next": "Close-the-incident-as-a-false-positive",
-            "penalty": 25,
+            "penalty": 30,
             "mistake": "Prematurely closing the incident without checking for credential compromise is a critical failure."
           }
         ]
@@ -56,7 +56,7 @@
           {
             "text": "View network logs",
             "next": "View-network-logs",
-            "penalty": -10,
+            "penalty": -15,
             "mistake": "You are behind the curve; logs should have been viewed earlier, but this is a necessary late action."
           },
           {
@@ -136,6 +136,23 @@
           {
             "text": "Analyze proxy traffic for clicks.",
             "next": "Analyze-proxy-traffic-for-clicks"
+          },
+          {
+            "text": "Block all email traffic",
+            "next": "Block-all-email-traffic",
+            "penalty": 100,
+            "mistake": "Blocking all email traffic is a disproportionate response that halts business operations and forces manual recovery, drastically slowing containment."
+          }
+        ]
+      },
+      {
+        "id": "Block-all-email-traffic",
+        "text": "<p>You accidentally cut off all company wide communication, and was forced to rely on manual communication for the rest of the incident, slowing response time, and giving the attacker time to infiltrate your system.</p><p>Along with this, you were forced to do much of the recovery yourself as your team are mainly remote workers.</p><p>Your action, while applicable in some instances, was not suited for the severity of this incident.</p><p>As a result, you are required to undergo further training for incident response.</p><div class=\"ascii-art\"><br>⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄<br>⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⡀⠄⠄⠄⠄<br>⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠈⠄⠄⠄⠁⠄⠁⠄⠄⠄⠄⠄<br>⠄⠄⠄⠄⠄⠄⣀⣀⣤⣤⣴⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣦⣤⣤⣄⣀⡀⠄⠄⠄⠄⠄<br>⠄⠄⠄⠄⣴⣿⣿⡿⣿⢿⣟⣿⣻⣟⡿⣟⣿⣟⡿⣟⣿⣻⣟⣿⣻⢿⣻⡿⣿⢿⣷⣆⠄⠄⠄<br>⠄⠄⠄⢘⣿⢯⣷⡿⡿⡿⢿⢿⣷⣯⡿⣽⣞⣷⣻⢯⣷⣻⣾⡿⡿⢿⢿⢿⢯⣟⣞⡮⡀⠄⠄<br>⠄⠄⠄⢸⢞⠟⠃⣉⢉⠉⠉⠓⠫⢿⣿⣷⢷⣻⣞⣿⣾⡟⠽⠚⠊⠉⠉⠉⠙⠻⣞⢵⠂⠄⠄<br>⠄⠄⠄⢜⢯⣺⢿⣻⣿⣿⣷⣔⡄⠄⠈⠛⣿⣿⡾⠋⠁⠄⠄⣄⣶⣾⣿⡿⣿⡳⡌⡗⡅⠄⠄<br>⠄⠄⠄⢽⢱⢳⢹⡪⡞⠮⠯⢯⡻⡬⡐⢨⢿⣿⣿⢀⠐⡥⣻⡻⠯⡳⢳⢹⢜⢜⢜⢎⠆⠄⠄<br>⠄⠄⠠⣻⢌⠘⠌⡂⠈⠁⠉⠁⠘⠑⢧⣕⣿⣿⣿⢤⡪⠚⠂⠈⠁⠁⠁⠂⡑⠡⡈⢮⠅⠄⠄<br>⠄⠄⠠⣳⣿⣿⣽⣭⣶⣶⣶⣶⣶⣺⣟⣾⣻⣿⣯⢯⢿⣳⣶⣶⣶⣖⣶⣮⣭⣷⣽⣗⠍⠄⠄<br>⠄⠄⢀⢻⡿⡿⣟⣿⣻⣽⣟⣿⢯⣟⣞⡷⣿⣿⣯⢿⢽⢯⣿⣻⣟⣿⣻⣟⣿⣻⢿⣿⢀⠄⠄<br>⠄⠄⠄⡑⡏⠯⡯⡳⡯⣗⢯⢟⡽⣗⣯⣟⣿⣿⣾⣫⢿⣽⠾⡽⣺⢳⡫⡞⡗⡝⢕⠕⠄⠄⠄<br>⠄⠄⠄⢂⡎⠅⡃⢇⠇⠇⣃⣧⡺⡻⡳⡫⣿⡿⣟⠞⠽⠯⢧⣅⣃⠣⠱⡑⡑⠨⢐⢌⠂⠄⠄<br>⠄⠄⠄⠐⠼⣦⢀⠄⣶⣿⢿⣿⣧⣄⡌⠂⠢⠩⠂⠑⣁⣅⣾⢿⣟⣷⠦⠄⠄⡤⡇⡪⠄⠄⠄<br>⠄⠄⠄⠄⠨⢻⣧⡅⡈⠛⠿⠿⠿⠛⠁⠄⢀⡀⠄⠄⠘⠻⠿⠿⠯⠓⠁⢠⣱⡿⢑⠄⠄⠄⠄<br>⠄⠄⠄⠄⠈⢌⢿⣷⡐⠤⣀⣀⣂⣀⢀⢀⡓⠝⡂⡀⢀⢀⢀⣀⣀⠤⢊⣼⡟⡡⡁⠄⠄⠄⠄<br>⠄⠄⠄⠄⠄⠈⢢⠚⣿⣄⠈⠉⠛⠛⠟⠿⠿⠟⠿⠻⠻⠛⠛⠉⠄⣠⠾⢑⠰⠈⠄⠄⠄⠄⠄<br>⠄⠄⠄⠄⠄⠄⠄⠑⢌⠿⣦⡡⣱⣸⣸⣆⠄⠄⠄⣰⣕⢔⢔⠡⣼⠞⡡⠁⠁⠄⠄⠄⠄⠄⠄<br>⠄⠄⠄⠄⠄⠄⠄⠄⠄⠑⢝⢷⣕⡷⣿⡿⠄⠄⠠⣿⣯⣯⡳⡽⡋⠌⠄⠄⠄⠄⠄⠄⠄⠄⠄<br>⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠙⢮⣿⣽⣯⠄⠄⢨⣿⣿⡷⡫⠃⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄<br>⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠘⠙⠝⠂⠄⢘⠋⠃⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄<br>⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄<br>⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄</div>",
+        "choices": [
+          {
+            "text": "End Simulation (Major Loss)",
+            "next": "End-Loss",
+            "penalty": 100
           }
         ]
       },
@@ -151,7 +168,7 @@
           {
             "text": "Monitor the accounts quietly for anomalies",
             "next": "Monitor-the-accounts-quietly-for-anomalies",
-            "penalty": 100,
+            "penalty": 40,
             "mistake": "Monitoring instead of immediate quarantine allows the threat to persist, increasing the risk of lateral movement."
           }
         ]
@@ -163,18 +180,18 @@
           {
             "text": "Reset passwords of compromised accounts",
             "next": "Reset-passwords-of-compromised-accounts",
-            "penalty": 0
+            "penalty": -10
           },
           {
             "text": "Monitor the accounts quietly for anomalies",
             "next": "Monitor-the-accounts-quietly-for-anomalies",
-            "penalty": 100,
+            "penalty": 50,
             "mistake": "Failing to reset compromised admin accounts immediately is a critical security failure."
           },
           {
             "text": "Take no action since the emails are already blocked",
             "next": "Take-no-action-since-the-emails-are-already-blocked",
-            "penalty": 100,
+            "penalty": 80,
             "mistake": "Ignoring the existing compromise (stolen credentials) is a catastrophic failure."
           }
         ]
@@ -297,19 +314,19 @@
           {
             "text": "Continue about your day since the passwords have been fully reset",
             "next": "Continue-about-your-day-since-the-passwords-have-been-fully-reset",
-            "penalty": 100,
+            "penalty": 30,
             "mistake": "Ignoring an unauthorized user found during an incident is a major operational security failure."
           },
           {
             "text": "Delete the user",
             "next": "Delete-the-user",
-            "penalty": 100,
+            "penalty": 40,
             "mistake": "Deleting a user without investigation could violate retention policies and cause business damage."
           },
           {
             "text": "Check with HR about recent hires",
             "next": "Check-with-HR-about-recent-hires",
-            "penalty": -10
+            "penalty": -5
           }
         ]
       },
