@@ -101,7 +101,7 @@
       },
       {
         "id": "Review-SIEM-and-SSO-logs",
-        "text": "<p>Your review of the logs shows several failed login attempts against a few key user accounts, confirming that credential harvesting occurred.</p>",
+        "text": "<p>You review SSO logs and find the first logon from a new user. You query SIEM logs for user activity during this time.</p><p>During this review, you find that the user had downloaded a document and upon opening the document, it is discovered that the document contained sensitive customer data.</p><p>What is your next step?</p>",
         "choices": [
           {
             "text": "Analyze proxy traffic for clicks.",
