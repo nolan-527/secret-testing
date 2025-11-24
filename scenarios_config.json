@@ -21,7 +21,7 @@
           {
             "text": "Run AV scans on all network devices",
             "next": "Run-AV-scans-on-all-network-devices",
-            "penalty": 5,
+            "penalty": 10,
             "mistake": "Running an AV scan is an investigation action, but quarantining the active threat is a higher priority containment step."
           },
           {
@@ -30,7 +30,7 @@
             "penalty": 0
           },
           {
-            "text": "Personally investigate the link (Sand box)",
+            "text": "Personally investigate the link (Sandbox)",
             "next": "Personally-investigate-the-link-Sand-box",
             "penalty": 5,
             "mistake": "Prioritized analysis over the containment of the active email threat."
@@ -44,32 +44,32 @@
           {
             "text": "Close the incident as a false positive",
             "next": "Close-the-incident-as-a-false-positive",
-            "penalty": 25,
+            "penalty": 15,
             "mistake": "Prematurely closing the incident without checking for credential compromise is a critical failure."
           }
         ]
       },
       {
         "id": "Close-the-incident-as-a-false-positive",
-        "text": "<p>You decide to close the incident and flag it as a false positive in the system. Later that day, however, multiple employees report being locked out after “resetting” their passwords using the phishing link.</p><p>You now realize that the link was a positive alert which you have now reported to the CISO.</p>",
+        "text": "<p>You decide to close the incident and flag it as a false positive. Later that day, however, multiple employees report being locked out after “resetting” their passwords using the phishing link.</p><p>You now realize that the link was a positive alert which you have now reported to the CISO.</p>",
         "choices": [
           {
             "text": "View network logs",
             "next": "View-network-logs",
-            "penalty": -15,
-            "mistake": "You are behind the curve; logs should have been viewed earlier, but this is a necessary late action."
+            "penalty": 5,
+            "mistake": "You are recovering, but you are late to check the logs."
           },
           {
-            "text": "reset passwords to see if it was a system error",
+            "text": "Reset passwords to see if it was a system error",
             "next": "reset-passwords-to-see-if-it-was-a-system-error",
             "penalty": 10,
-            "mistake": "Resetting passwords without prior analysis is a poor investigative and containment choice."
+            "mistake": "Resetting passwords without prior analysis is a poor investigative choice."
           },
           {
             "text": "Analyze proxy traffic for clicks.",
             "next": "Analyze-proxy-traffic-for-clicks",
-            "penalty": -5,
-            "mistake": "Necessary step, but you lost critical time closing the incident as a false positive."
+            "penalty": 5,
+            "mistake": "Necessary step, but you lost critical time closing the incident earlier."
           }
         ]
       },
@@ -141,7 +141,7 @@
             "text": "Block all email traffic",
             "next": "Block-all-email-traffic",
             "penalty": 65,
-            "mistake": "Blocking all email traffic is a disproportionate response that halts business operations and forces manual recovery, drastically slowing containment."
+            "mistake": "Blocking all email traffic is a disproportionate response that halts business operations and forces manual recovery."
           }
         ]
       },
@@ -168,7 +168,7 @@
           {
             "text": "Monitor the accounts quietly for anomalies",
             "next": "Monitor-the-accounts-quietly-for-anomalies",
-            "penalty": 40,
+            "penalty": 10,
             "mistake": "Monitoring instead of immediate quarantine allows the threat to persist, increasing the risk of lateral movement."
           }
         ]
@@ -185,13 +185,13 @@
           {
             "text": "Monitor the accounts quietly for anomalies",
             "next": "Monitor-the-accounts-quietly-for-anomalies",
-            "penalty": 50,
+            "penalty": 20,
             "mistake": "Failing to reset compromised admin accounts immediately is a critical security failure."
           },
           {
             "text": "Take no action since the emails are already blocked",
             "next": "Take-no-action-since-the-emails-are-already-blocked",
-            "penalty": 80,
+            "penalty": 25,
             "mistake": "Ignoring the existing compromise (stolen credentials) is a catastrophic failure."
           }
         ]
@@ -203,13 +203,13 @@
           {
             "text": "Block sender IP",
             "next": "Block-sender-IP",
-            "penalty": 15,
+            "penalty": 10,
             "mistake": "Blocking the IP is a short-term fix; it doesn't protect against future, similar attacks from new sources."
           },
           {
             "text": "Block sender email address",
             "next": "Block-sender-email-address",
-            "penalty": 20,
+            "penalty": 10,
             "mistake": "Blocking the email address is temporary; attackers can easily spoof a new address."
           },
           {
@@ -226,7 +226,7 @@
           {
             "text": "End Simulation (Major Loss)",
             "next": "End-Loss",
-            "penalty": 100
+            "penalty": 65
           }
         ]
       },
@@ -237,7 +237,7 @@
           {
             "text": "End Simulation (Major Loss)",
             "next": "End-Loss",
-            "penalty": 100
+            "penalty": 65
           }
         ]
       },
@@ -253,13 +253,13 @@
           {
             "text": "Require the use of a password manager",
             "next": "Require-the-use-of-a-password-manager",
-            "penalty": 10,
+            "penalty": 5,
             "mistake": "Password managers are helpful, but MFA is the superior technical control against credential theft."
           },
           {
             "text": "Update the password complexity requirements",
             "next": "Update-the-password-complexity-requirements",
-            "penalty": 10,
+            "penalty": 5,
             "mistake": "Password complexity is a weak control compared to MFA and is easily bypassed."
           }
         ]
@@ -281,7 +281,7 @@
           {
             "text": "End Simulation (Failure)",
             "next": "End-Loss",
-            "penalty": 100
+            "penalty": 65
           }
         ]
       },
@@ -292,7 +292,7 @@
           {
             "text": "End Simulation (Failure)",
             "next": "End-Loss",
-            "penalty": 100
+            "penalty": 65
           }
         ]
       },
@@ -303,7 +303,7 @@
           {
             "text": "End Simulation (Major Loss)",
             "next": "End-Loss",
-            "penalty": 100
+            "penalty": 65
           }
         ]
       },
@@ -314,13 +314,13 @@
           {
             "text": "Continue about your day since the passwords have been fully reset",
             "next": "Continue-about-your-day-since-the-passwords-have-been-fully-reset",
-            "penalty": 30,
+            "penalty": 15,
             "mistake": "Ignoring an unauthorized user found during an incident is a major operational security failure."
           },
           {
             "text": "Delete the user",
             "next": "Delete-the-user",
-            "penalty": 40,
+            "penalty": 15,
             "mistake": "Deleting a user without investigation could violate retention policies and cause business damage."
           },
           {
@@ -342,12 +342,12 @@
       },
       {
         "id": "Continue-about-your-day-since-the-passwords-have-been-fully-reset",
-        "text": "<p>You decide to ignore the unusual user, but that user was the attacker's persistence mechanism. Within hours, the attacker uses the newly created admin account to exfiltrate critical client data. You failed to eradicate the threat.</p><div class=\"ascii-art\"><br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⢡⡾⠋⠉⠀⠄⢈⣿⠸⠿⠿⢿⣿⡏⢸⣿⣷⡌⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⣯⣀⠈⣀⢠⣴⣿⣿⣿⣿⣿⣿⣷⣶⣾⠙⠛⠇⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠀⣿⣿⣧⣶⣾⢻⣿⣿⣿⣿⣿⣿⢻⣿⣿⡇⠀⠁⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⡀⣿⣿⣿⣿⣿⡈⣿⣿⣿⣿⣿⡿⢸⣿⣿⣷⣆⡀⣅⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠇⢸⣿⣿⣿⣿⡇⠋⡌⣿⡟⡄⠃⣿⣿⣿⣿⣿⠃⡇⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⣤⣛⡿⠿⣿⢿⣀⠃⠻⠇⠃⣠⠿⠿⢿⣛⣩⣄⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢰⠸⢿⣿⣷⣶⣦⣬⣓⣒⣒⣫⣥⣶⣾⣿⠿⠿⠟⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠔⠀⠒⠂⠈⠙⠛⠿⣿⣿⣿⠿⠛⠋⠉⠀⠈⠉⠈⠂⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⣄⡇⠀⠀⢅⢂⡄⠀⠀⢛⠃⠀⠀⠄⢁⠄⠀⠀⣧⡆⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢻⡇⣦⣀⣀⣀⠀⠀⣠⠀⢰⣀⠀⠀⢀⣀⣤⡆⡟⠁⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠠⣷⣬⣭⣭⣶⣶⣿⠋⠀⠀⠻⣿⠿⢶⣶⣶⣾⡷⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠉⠉⡉⠀⠀⢈⣧⡀⠀⣀⣠⣿⠀⠀⠀⠈⠉⡄⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆⠀⠀⠀⠀⡄⢸⣏⣹⣿⣿⣉⣿⠀⠀⠀⠀⠀⡇⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠉⢉⢈⡉⡁⡀⠉⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢀⠀⠂⠀⢠⡀⠂⠌⠠⠁⠐⢀⠴⠀⠠⠠⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢸⢀⠱⡀⡀⠌⠇⣶⣶⣾⠋⠃⡄⠠⠐⢡⡇⡇⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⢋⣥⠀⢀⠠⠁⠐⢀⣾⣬⣭⣭⣼⡀⠅⠀⠐⠿⠇⡇⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⡿⠟⣋⣤⣴⣾⣿⡇⠀⡼⠀⢀⠀⠉⢹⣿⣿⣯⢩⣭⡄⠞⢠⣿⡆⠇⢠⣬⡍⣙⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⡿⠿⠋⣥⣶⣿⣿⣿⣿⣿⠿⠃⣤⠀⠀⣸⣿⣦⠀⠠⣤⣉⢀⡉⠁⢰⡆⢿⢿⡆⢸⣿⣇⣿⢰⣶⣶⣬⣍⡙⠛⠿⠿⢿⣿<br></div>",
+        "text": "<p>You decided to continue about your day since passwords have been fully reset for all the affected users.</p><p>However, later that week, it is discovered that a threat actor has not only breached the system, but has exfiltrated company and customer sensitive data.</p><p>In order to find out what went wrong, your company decided to perform an audit and security log analysis to understand what was done in response or if anything had been detected. It was found that the user you decided to ignore was actually a newly created account by the threat actor and that was the reason for the breach.</p><p>Due to your lack of proper procedures, the company was breached, resulting in a class action lawsuit against the company.</p><p><strong>You have been terminated.</strong></p><div class=\"ascii-art\"><br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⢡⡾⠋⠉⠀⠄⢈⣿⠸⠿⠿⢿⣿⡏⢸⣿⣷⡌⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⣯⣀⠈⣀⢠⣴⣿⣿⣿⣿⣿⣿⣷⣶⣾⠙⠛⠇⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠀⣿⣿⣧⣶⣾⢻⣿⣿⣿⣿⣿⣿⢻⣿⣿⡇⠀⠁⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⡀⣿⣿⣿⣿⣿⡈⣿⣿⣿⣿⣿⡿⢸⣿⣿⣷⣆⡀⣅⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠇⢸⣿⣿⣿⣿⡇⠋⡌⣿⡟⡄⠃⣿⣿⣿⣿⣿⠃⡇⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⣤⣛⡿⠿⣿⢿⣀⠃⠻⠇⠃⣠⠿⠿⢿⣛⣩⣄⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢰⠸⢿⣿⣷⣶⣦⣬⣓⣒⣒⣫⣥⣶⣾⣿⠿⠿⠟⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠔⠀⠒⠂⠈⠙⠛⠿⣿⣿⣿⠿⠛⠋⠉⠀⠈⠉⠈⠂⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⣄⡇⠀⠀⢅⢂⡄⠀⠀⢛⠃⠀⠀⠄⢁⠄⠀⠀⣧⡆⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢻⡇⣦⣀⣀⣀⠀⠀⣠⠀⢰⣀⠀⠀⢀⣀⣤⡆⡟⠁⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠠⣷⣬⣭⣭⣶⣶⣿⠋⠀⠀⠻⣿⠿⢶⣶⣶⣾⡷⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠉⠉⡉⠀⠀⢈⣧⡀⠀⣀⣠⣿⠀⠀⠀⠈⠉⡄⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆⠀⠀⠀⠀⡄⢸⣏⣹⣿⣿⣉⣿⠀⠀⠀⠀⠀⡇⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠉⢉⢈⡉⡁⡀⠉⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢀⠀⠂⠀⢠⡀⠂⠌⠠⠁⠐⢀⠴⠀⠠⠠⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢸⢀⠱⡀⡀⠌⠇⣶⣶⣾⠋⠃⡄⠠⠐⢡⡇⡇⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⢋⣥⠀⢀⠠⠁⠐⢀⣾⣬⣭⣭⣼⡀⠅⠀⠐⠿⠇⡇⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⡿⠟⣋⣤⣴⣾⣿⡇⠀⡼⠀⢀⠀⠉⢹⣿⣿⣯⢩⣭⡄⠞⢠⣿⡆⠇⢠⣬⡍⣙⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⡿⠿⠋⣥⣶⣿⣿⣿⣿⣿⠿⠃⣤⠀⠀⣸⣿⣦⠀⠠⣤⣉⢀⡉⠁⢰⡆⢿⢿⡆⢸⣿⣇⣿⢰⣶⣶⣬⣍⡙⠛⠿⠿⢿⣿<br></div>",
         "choices": [
           {
             "text": "End Simulation (Major Loss)",
             "next": "End-Loss",
-            "penalty": 100
+            "penalty": 65
           }
         ]
       },
@@ -358,7 +358,7 @@
           {
             "text": "End Simulation (Failure)",
             "next": "End-Loss",
-            "penalty": 100
+            "penalty": 65
           }
         ]
       },
@@ -374,12 +374,12 @@
       },
       {
         "id": "End-Win",
-        "text": "<p>SUCCESS: You have successfully navigated the incident response process. Your swift and targeted actions saved the company from a major breach. You minimized disruption and secured forensic data for future defenses.</p><div class=\"ascii-art\"><br>__  __ _       _       _       <br>\\\\ \\/ /(_) __ _| | __ _| |_ ___ <br> \\\\  / | |/ _` | |/ _` | __/ _ \\<br>  /  \\\\ | | (_| | | (_| | ||  __\\<br> /_/\\\\_\\\\| |\\__,_|_|\\__,_|\\__\\___|<br>       |_|<br></div>",
+        "text": "<p>SUCCESS: You have successfully navigated the incident response process. Your swift and targeted actions saved the company from a major breach. You minimized disruption and secured forensic data for future defenses.</p><div class=\"ascii-art\"><br>__  __ _       _       _       <br>\\\\ \\/ /(_) __ _| | __ _| |_ ___ <br> \\\\  / | |/ _` | |/ _` | __/ _ \\<br>  /  \\\\ | | (_| | | (_| | ||  __\\<br> /_/\\\\_\\\\| |\\__,_|_|\\__,_|\\__\\___|<br>       |_|<br></div>",
         "choices": []
       },
       {
         "id": "End-Loss",
-        "text": "<p>FAILURE: Your misstep led to a critical failure or a full-scale breach. Sensitive data has been compromised or significant loss occurred. The cleanup will be costly, and the company's reputation is at risk.</p><div class=\"ascii-art\"><br> _       _    _   _   _ <br>| |     | |  | | | | | |<br>| |     | |  | | | | | |<br>| |     | |  | | | | | |<br>| |____ | |__| | | |_| |<br>|______| \\\\____/   \\\\___/ <br></div>",
+        "text": "<p>FAILURE: Your misstep led to a critical failure or a full-scale breach. Sensitive data has been compromised or significant loss occurred. The cleanup will be costly, and the company's reputation is at risk.</p><div class=\"ascii-art\"><br> _       _    _   _   _ <br>| |     | |  | | | | | |<br>| |     | |  | | | | | |<br>| |     | |  | | | | | |<br>| |____ | |__| | | |_| |<br>|______| \\\\____/   \\\\___/ <br></div>",
         "choices": []
       }
     ]
