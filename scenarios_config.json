@@ -21,7 +21,7 @@
           {
             "text": "Run AV scans on all network devices",
             "next": "Run-AV-scans-on-all-network-devices",
-            "penalty": 10,
+            "penalty": 5,
             "mistake": "Running an AV scan is an investigation action, but quarantining the active threat is a higher priority containment step."
           },
           {
@@ -44,7 +44,7 @@
           {
             "text": "Close the incident as a false positive",
             "next": "Close-the-incident-as-a-false-positive",
-            "penalty": 30,
+            "penalty": 25,
             "mistake": "Prematurely closing the incident without checking for credential compromise is a critical failure."
           }
         ]
@@ -80,22 +80,22 @@
           {
             "text": "Review SIEM and SSO logs.",
             "next": "Review-SIEM-and-SSO-logs",
-            "penalty": 0
+            "penalty": -5
           },
           {
             "text": "Analyze proxy traffic for clicks.",
             "next": "Analyze-proxy-traffic-for-clicks",
-            "penalty": 0
+            "penalty": -5
           },
           {
             "text": "Identify impacted accounts.",
             "next": "Identify-impacted-accounts",
-            "penalty": 0
+            "penalty": -5
           },
           {
             "text": "Investigate email contents",
             "next": "Investigate-email-contents",
-            "penalty": 0
+            "penalty": -5
           }
         ]
       },
@@ -140,7 +140,7 @@
           {
             "text": "Block all email traffic",
             "next": "Block-all-email-traffic",
-            "penalty": 100,
+            "penalty": 65,
             "mistake": "Blocking all email traffic is a disproportionate response that halts business operations and forces manual recovery, drastically slowing containment."
           }
         ]
@@ -152,7 +152,7 @@
           {
             "text": "End Simulation (Major Loss)",
             "next": "End-Loss",
-            "penalty": 100
+            "penalty": 0
           }
         ]
       },
@@ -342,7 +342,7 @@
       },
       {
         "id": "Continue-about-your-day-since-the-passwords-have-been-fully-reset",
-        "text": "<p>You decide to ignore the unusual user, but that user was the attacker's persistence mechanism. Within hours, the attacker uses the newly created admin account to exfiltrate critical client data. You failed to eradicate the threat.</p>",
+        "text": "<p>You decide to ignore the unusual user, but that user was the attacker's persistence mechanism. Within hours, the attacker uses the newly created admin account to exfiltrate critical client data. You failed to eradicate the threat.</p><div class=\"ascii-art\"><br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⢡⡾⠋⠉⠀⠄⢈⣿⠸⠿⠿⢿⣿⡏⢸⣿⣷⡌⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⣯⣀⠈⣀⢠⣴⣿⣿⣿⣿⣿⣿⣷⣶⣾⠙⠛⠇⢹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠀⣿⣿⣧⣶⣾⢻⣿⣿⣿⣿⣿⣿⢻⣿⣿⡇⠀⠁⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⡀⣿⣿⣿⣿⣿⡈⣿⣿⣿⣿⣿⡿⢸⣿⣿⣷⣆⡀⣅⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠇⢸⣿⣿⣿⣿⡇⠋⡌⣿⡟⡄⠃⣿⣿⣿⣿⣿⠃⡇⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⣤⣛⡿⠿⣿⢿⣀⠃⠻⠇⠃⣠⠿⠿⢿⣛⣩⣄⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢰⠸⢿⣿⣷⣶⣦⣬⣓⣒⣒⣫⣥⣶⣾⣿⠿⠿⠟⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠔⠀⠒⠂⠈⠙⠛⠿⣿⣿⣿⠿⠛⠋⠉⠀⠈⠉⠈⠂⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⣄⡇⠀⠀⢅⢂⡄⠀⠀⢛⠃⠀⠀⠄⢁⠄⠀⠀⣧⡆⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⢻⡇⣦⣀⣀⣀⠀⠀⣠⠀⢰⣀⠀⠀⢀⣀⣤⡆⡟⠁⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠠⣷⣬⣭⣭⣶⣶⣿⠋⠀⠀⠻⣿⠿⢶⣶⣶⣾⡷⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠉⠉⡉⠀⠀⢈⣧⡀⠀⣀⣠⣿⠀⠀⠀⠈⠉⡄⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆⠀⠀⠀⠀⡄⢸⣏⣹⣿⣿⣉⣿⠀⠀⠀⠀⠀⡇⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀⠀⠀⠀⠉⢉⢈⡉⡁⡀⠉⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢀⠀⠂⠀⢠⡀⠂⠌⠠⠁⠐⢀⠴⠀⠠⠠⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢸⢀⠱⡀⡀⠌⠇⣶⣶⣾⠋⠃⡄⠠⠐⢡⡇⡇⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⢋⣥⠀⢀⠠⠁⠐⢀⣾⣬⣭⣭⣼⡀⠅⠀⠐⠿⠇⡇⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⣿⣿⣿⣿⡿⠟⣋⣤⣴⣾⣿⡇⠀⡼⠀⢀⠀⠉⢹⣿⣿⣯⢩⣭⡄⠞⢠⣿⡆⠇⢠⣬⡍⣙⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿<br>⡿⠿⠋⣥⣶⣿⣿⣿⣿⣿⠿⠃⣤⠀⠀⣸⣿⣦⠀⠠⣤⣉⢀⡉⠁⢰⡆⢿⢿⡆⢸⣿⣇⣿⢰⣶⣶⣬⣍⡙⠛⠿⠿⢿⣿<br></div>",
         "choices": [
           {
             "text": "End Simulation (Major Loss)",
