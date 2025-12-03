@@ -45,34 +45,34 @@
             0 0 2px #00ff55,
             0 0 5px rgba(0,255,120,0.6);
     }
-    /* ==========================================
-   IBM GREEN CRT BUTTONS
+ /* ==========================================
+   IBM GREEN CRT BUTTONS – STRONGER TERMINAL LOOK
    ========================================== */
 .terminal-button {
-    background-color: transparent;
-    border: none;             /* no outlines */
-    color: #99ffbb;           /* dimmer IBM green for non-hover text */
+    background-color: rgba(0, 40, 0, 0.95);  /* dark terminal green panel */
+    border: none;                            /* no visible outline */
+    color: #00ff55;                          /* bright IBM green text */
     border-radius: 0;
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.4rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     cursor: pointer;
 
-    /* CRT glow */
+    /* CRT glow around the label */
     text-shadow:
-        0 0 1px #00ff55,
-        0 0 3px rgba(0,255,120,0.4);
+        0 0 2px #00ff55,
+        0 0 4px rgba(0,255,120,0.6);
 
     transition: all 0.12s ease-in-out;
 }
 
 .terminal-button:hover {
-    background-color: rgba(0,255,120,0.20);  /* light phosphor bloom */
-    color: #000;                              /* dark text like classic invert highlight */
-    text-shadow: none;                        /* prevents blur during hover */
+    background-color: #00ff55;               /* full bright phosphor on hover */
+    color: #001400;                          /* very dark green text (like inverted) */
+    text-shadow: none;                       /* keep hover text sharp */
     box-shadow:
-        0 0 6px #00ff55,
-        0 0 12px #00ff55;                     /* CRT glow pulse */
+        0 0 4px #00ff55,
+        0 0 10px #00ff55;                    /* glow bloom */
     }
 
     .card-box {
