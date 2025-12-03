@@ -117,27 +117,28 @@
        ====================================================== */
 
     /* Success green */
-    .crt-green {
-        color: #00ff88;
-        text-shadow:
-            0 0 2px #00ff88,
-            0 0 6px rgba(0,255,150,0.5);
-    }
+    /* Success green (unchanged, here for context) */
+.crt-green {
+    color: #00ff88;
+    text-shadow:
+        0 0 2px #00ff88,
+        0 0 4px rgba(0,255,150,0.35);
+}
 
-    /* Warning amber (replaces hard-to-read yellow) */
-    .crt-amber {
-        color: #ffcc66;
-        text-shadow:
-            0 0 2px #ffcc66,
-            0 0 4px rgba(255,200,100,0.4);
-    }
+/* Darker amber for mixed / warning states */
+.crt-amber {
+    color: #d8a040; /* deeper amber */
+    text-shadow:
+        0 0 1px #d8a040,
+        0 0 2px rgba(200,130,40,0.4);
+}
 
-    /* Critical failure red-orange */
-    .crt-danger {
-        color: #ff7744;
-        text-shadow:
-            0 0 2px #ff7744,
-            0 0 6px rgba(255,120,80,0.4);
+/* Darker red-orange for critical failure */
+.crt-danger {
+    color: #d85030; /* deeper red-orange */
+    text-shadow:
+        0 0 1px #d85030,
+        0 0 2px rgba(200,80,40,0.45);
     }
 
     /* ======================================================
