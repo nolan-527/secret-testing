@@ -6,27 +6,156 @@
     <title>Threat_Quest: Cyber Incident Simulator</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* General Terminal Styling */
-        @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
-        body { font-family: 'VT323', monospace; background-color: #000; color: #00ff00; font-size: 1.25rem; line-height: 1.5; }
-        .container-box { max-width: none; }
-        .terminal-header { color: #00ff00; text-shadow: 0 0 5px #00ff00; }
-        .text-glow { text-shadow: 0 0 3px #00ff00; }
-        .terminal-button { background-color: transparent; border: none; color: #00ff00; border-radius: 0; transition: all 0.1s ease-in-out; padding: 0.5rem 1rem; }
-        .terminal-button:hover { background-color: #00ff00; color: #000; transform: none; box-shadow: none; }
-        .card-box { background-color: #000; border: none; border-radius: 0; }
-        .final-score { color: #00ff00; text-shadow: 0 0 5px #00ff00; }
-        #story-content.menu-mode { min-height: 400px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+    /* General Terminal Styling */
+    @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
-        /* --- THIS IS THE NEW RULE FOR ASCII ART --- */
-        pre {
-            font-family: 'VT323', monospace; /* Use the game font */
-            color: #33FF33;                 /* Match the game text color */
-            text-shadow: 0 0 3px #00ff00;   /* Match the game glow */
-            line-height: 1.1;               /* Make art a bit tighter */
-            font-size: 1rem;                /* Adjust size if needed */
-        }
-    </style>
+    body {
+        font-family: 'VT323', monospace;
+        background-color: #000;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        position: relative; /* so overlay behaves nicely */
+        overflow-x: hidden;
+    }
+
+    .container-box { max-width: none; }
+
+    .terminal-header {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .text-glow {
+        /* Kept for compatibility, but the global CRT glow will handle most text */
+        text-shadow: 0 0 3px #00ff00;
+    }
+
+    .terminal-button {
+    background-color: transparent;
+    border: none;                 /* ✔ removes green outline */
+    color: #c8ffdf;               /* matches your softer CRT text color */
+    border-radius: 0;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    transition: all 0.1s ease-in-out;
+    text-shadow:
+        0 0 1px #4cff9a,
+        0 0 2px #2eff77,
+        0 0 4px rgba(0, 255, 102, 0.5);    
+}
+
+    }
+
+    .terminal-button:hover {
+    background-color: rgba(0, 255, 102, 0.2); /* faint CRT glow highlight */
+    color: #000;
+    text-shadow: none; /* keeps it readable on dark text */
+    box-shadow: 0 0 8px #00ff66;
+    }
+
+   .card-box {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 1rem 0;  /* subtle spacing without looking like a UI card */
+    }
+
+    .final-score {
+        color: #00ff66;
+        text-shadow: 0 0 5px #00ff66;
+    }
+
+    #story-content.menu-mode {
+        min-height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* ASCII art and preformatted text styling */
+    pre {
+        font-family: 'VT323', monospace;
+        color: #f0fff8;
+        text-shadow: 0 0 2px #80ffc0, 0 0 4px #00ff66;
+        line-height: 1.1;
+        font-size: 1rem;
+        white-space: pre;
+    }
+
+    /* ============================ */
+    /*   GLOBAL CRT TEXT GLOW       */
+    /* ============================ */
+
+    body,
+p,
+h1,
+h2,
+h3,
+span,
+button,
+li,
+div,
+a {
+    color: #c8ffdf; /* dimmer off-green for comfort */
+    text-shadow:
+        0 0 1px #4cff9a,
+        0 0 2px #2eff77,
+        0 0 4px rgba(0, 255, 102, 0.5);
+    }
+
+    /* Let hover text on buttons stay readable */
+    .terminal-button:hover {
+        text-shadow: none;
+    }
+
+    /* Centered story text container */
+    #story-text {
+        text-align: left;
+    }
+
+    /* ============================ */
+    /*        CRT SCANLINES         */
+    /* ============================ */
+
+    body::after {
+        content: "";
+        pointer-events: none;
+        position: fixed;
+        inset: 0;
+        /* horizontal scanline pattern */
+        background: repeating-linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.26) 0px,
+            rgba(0, 0, 0, 0.26) 2px,
+            transparent 3px,
+            transparent 4px
+        );
+        mix-blend-mode: multiply;
+        opacity: 0.45;
+        z-index: 9999;
+    }
+
+    /* Optional: slight vignette around edges for CRT tube feel */
+    body::before {
+        content: "";
+        pointer-events: none;
+        position: fixed;
+        inset: -20px;
+        background:
+            radial-gradient(circle at 50% 50%, transparent 0%, transparent 55%, rgba(0,0,0,0.45) 100%);
+        opacity: 0.8;
+        z-index: 9998;
+    }
+
+    /* Ensure the game content renders *under* the scanlines */
+    #game-container {
+        position: relative;
+        z-index: 1;
+    }
+</style>
+
 </head>
 <body class="flex justify-center min-h-screen p-8">
     <div id="game-container" class="w-full container-box">
