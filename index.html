@@ -48,27 +48,30 @@
 
     /* buttons styled like vintage terminals */
     .terminal-button {
-        background-color: transparent;
-        border: none;
-        color: #99ffbb;    /* slightly dimmer than main text */
-        border-radius: 0;
-        padding: 0.5rem 1rem;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        cursor: pointer;
+    background-color: transparent;
+    border: none;             /* no outlines */
+    color: #99ffbb;           /* dimmer IBM green for non-hover text */
+    border-radius: 0;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
 
-        text-shadow:
-            0 0 1px #00ff55,
-            0 0 3px rgba(0,255,120,0.4);
+    /* CRT glow */
+    text-shadow:
+        0 0 1px #00ff55,
+        0 0 3px rgba(0,255,120,0.4);
 
-        transition: all 0.1s ease-in-out;
+    transition: all 0.12s ease-in-out;
     }
 
     .terminal-button:hover {
-        background-color: rgba(0,255,120,0.15);
-        color: #000;
-        text-shadow: none;
-        box-shadow: 0 0 10px #00ff55;
+    background-color: rgba(0,255,120,0.20);  /* light phosphor bloom */
+    color: #000;                              /* dark text like classic invert highlight */
+    text-shadow: none;                        /* prevents blur during hover */
+    box-shadow:
+        0 0 6px #00ff55,
+        0 0 12px #00ff55;                     /* CRT glow pulse */
     }
 
     .card-box {
