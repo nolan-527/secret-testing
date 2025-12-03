@@ -45,34 +45,35 @@
             0 0 2px #00ff55,
             0 0 5px rgba(0,255,120,0.6);
     }
- /* ==========================================
-   IBM GREEN CRT BUTTONS – STRONGER TERMINAL LOOK
-   ========================================== */
-.terminal-button {
-    background-color: rgba(0, 40, 0, 0.95);  /* dark terminal green panel */
-    border: none;                            /* no visible outline */
-    color: #00ff55;                          /* bright IBM green text */
-    border-radius: 0;
-    padding: 0.6rem 1.4rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    cursor: pointer;
 
-    /* CRT glow around the label */
-    text-shadow:
-        0 0 2px #00ff55,
-        0 0 4px rgba(0,255,120,0.6);
+    /* ==========================================
+       IBM GREEN CRT BUTTONS – STRONGER TERMINAL LOOK
+       ========================================== */
+    .terminal-button {
+        background-color: rgba(0, 40, 0, 0.95);  /* dark terminal green panel */
+        border: none;                            /* no visible outline */
+        color: #00ff55;                          /* bright IBM green text */
+        border-radius: 0;
+        padding: 0.6rem 1.4rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        cursor: pointer;
 
-    transition: all 0.12s ease-in-out;
-}
+        /* CRT glow around the label */
+        text-shadow:
+            0 0 2px #00ff55,
+            0 0 4px rgba(0,255,120,0.6);
 
-.terminal-button:hover {
-    background-color: #00ff55;               /* full bright phosphor on hover */
-    color: #001400;                          /* very dark green text (like inverted) */
-    text-shadow: none;                       /* keep hover text sharp */
-    box-shadow:
-        0 0 4px #00ff55,
-        0 0 10px #00ff55;                    /* glow bloom */
+        transition: all 0.12s ease-in-out;
+    }
+
+    .terminal-button:hover {
+        background-color: #00ff55;               /* full bright phosphor on hover */
+        color: #001400;                          /* very dark green text (like inverted) */
+        text-shadow: none;                       /* keep hover text sharp */
+        box-shadow:
+            0 0 4px #00ff55,
+            0 0 10px #00ff55;                    /* glow bloom */
     }
 
     .card-box {
@@ -109,6 +110,34 @@
 
     #story-text {
         text-align: left;
+    }
+
+    /* ======================================================
+       CRT-OPTIMIZED FEEDBACK COLORS
+       ====================================================== */
+
+    /* Success green */
+    .crt-green {
+        color: #00ff88;
+        text-shadow:
+            0 0 2px #00ff88,
+            0 0 6px rgba(0,255,150,0.5);
+    }
+
+    /* Warning amber (replaces hard-to-read yellow) */
+    .crt-amber {
+        color: #ffcc66;
+        text-shadow:
+            0 0 2px #ffcc66,
+            0 0 4px rgba(255,200,100,0.4);
+    }
+
+    /* Critical failure red-orange */
+    .crt-danger {
+        color: #ff7744;
+        text-shadow:
+            0 0 2px #ff7744,
+            0 0 6px rgba(255,120,80,0.4);
     }
 
     /* ======================================================
@@ -245,7 +274,7 @@
             } catch (e) {
                 console.error("Failed to load scenario configuration:", e);
                 titleEl.textContent = "Error: File Missing";
-                centeredPassageEl.innerHTML = `<p class="text-red-500 text-center">ERROR: Could not load scenarios_config.json. Ensure the file exists and is correctly formatted.</p>`;
+                centeredPassageEl.innerHTML = `<p class="crt-danger text-center">ERROR: Could not load scenarios_config.json. Ensure the file exists and is correctly formatted.</p>`;
                 storyContentEl.style.display = 'flex';
                 storyContentEl.classList.add('menu-mode');
                 choicesContainerEl.style.display = 'none';
@@ -539,20 +568,20 @@
             if (isWin) {
                 // Winning feedback (focus on how well they scored)
                 if (mistakes.length === 0) {
-                     feedbackCardEl.innerHTML = `<div class="text-center"><p class="text-green-400 font-bold">Excellent! You made no mistakes and followed the NIST framework perfectly.</p><p class="mt-2">Your actions led to a successful incident response and you saved the company from a major breach.</p></div>`;
+                     feedbackCardEl.innerHTML = `<div class="text-center"><p class="crt-green font-bold">Excellent! You made no mistakes and followed the NIST framework perfectly.</p><p class="mt-2">Your actions led to a successful incident response and you saved the company from a major breach.</p></div>`;
                 } else {
                     // Won, but with mistakes
                     let listHtml = mistakes.map(m => `<li><strong>Mistake:</strong> ${m}</li>`).join('');
-                    feedbackCardEl.innerHTML = `<div class="text-center"><p class="text-yellow-400 font-bold">Success, but with room for improvement.</p><p class="mt-2">You contained the incident, but you made mistakes that cost time and resources:</p><ul class="list-disc list-inside mt-4 text-left mx-auto max-w-sm space-y-2">${listHtml}</ul></div>`;
+                    feedbackCardEl.innerHTML = `<div class="text-center"><p class="crt-amber font-bold">Success, but with room for improvement.</p><p class="mt-2">You contained the incident, but you made mistakes that cost time and resources:</p><ul class="list-disc list-inside mt-4 text-left mx-auto max-w-sm space-y-2">${listHtml}</ul></div>`;
                 }
             } else {
                 // Losing feedback (focus on failure reasons)
                 let listHtml = mistakes.map(m => `<li><strong>Mistake:</strong> ${m}</li>`).join('');
                 if (mistakes.length === 0) {
                     // The player probably hit a fatal loss passage with no associated score penalty
-                    feedbackCardEl.innerHTML = `<div class="text-center"><p class="text-red-400 font-bold">CRITICAL FAILURE.</p><p class="mt-2">Your final decision led to a catastrophic outcome, even though you made few other mistakes.</p></div>`;
+                    feedbackCardEl.innerHTML = `<div class="text-center"><p class="crt-danger font-bold">CRITICAL FAILURE.</p><p class="mt-2">Your final decision led to a catastrophic outcome, even though you made few other mistakes.</p></div>`;
                 } else {
-                    feedbackCardEl.innerHTML = `<div class="text-center"><p class="text-red-400 font-bold">CRITICAL FAILURE.</p><p class="mt-2">The incident spiraled out of control due to these critical missteps:</p><ul class="list-disc list-inside mt-4 text-left mx-auto max-w-sm space-y-2">${listHtml}</ul></div>`;
+                    feedbackCardEl.innerHTML = `<div class="text-center"><p class="crt-danger font-bold">CRITICAL FAILURE.</p><p class="mt-2">The incident spiraled out of control due to these critical missteps:</p><ul class="list-disc list-inside mt-4 text-left mx-auto max-w-sm space-y-2">${listHtml}</ul></div>`;
                 }
             }
         };
@@ -592,12 +621,12 @@
                 history.slice().reverse().forEach((attempt) => {
                     const attemptDiv = document.createElement('div');
                     
-                    // --- NEW COLOR LOGIC ---
-                    let colorClass = 'text-red-400'; // Default to red (for a score of 0)
+                    // --- NEW COLOR LOGIC USING CRT CLASSES ---
+                    let colorClass = 'crt-danger'; // Default (0 score) – critical
                     if (attempt.finalScore >= PASSING_SCORE_THRESHOLD) {
-                        colorClass = 'text-green-400'; // Pass (75-100)
+                        colorClass = 'crt-green';  // Pass (75–100)
                     } else if (attempt.finalScore > 0) { 
-                        colorClass = 'text-yellow-400'; // Didn't pass, but not 0 (1-74)
+                        colorClass = 'crt-amber'; // 1–74, partial / mixed
                     }
                     // --- END OF NEW LOGIC ---
 
